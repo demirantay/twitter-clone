@@ -1,0 +1,190 @@
+/*
+
+Palette:
+
+blue:           #1DA1F2
+blue hover:     #1991DA
+light hover:    #E8F6FD
+
+form border:    #E5E8E8
+
+*/
+
+* {
+  font-family: "Inter";
+}
+
+body {
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+/* ------------ left part ------------ */
+#left-box {
+  background-color: #E5E8E8;
+  width: 50%;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("landing_img.jpg");
+}
+
+
+
+/* ------------ right part ------------ */
+#right-box {
+  width: 46%;
+  position: fixed;
+  top:0;
+  right: 0;
+  bottom: 0;
+  margin-top: 8vh;
+
+}
+
+#right-box img {
+  height: 40px;
+}
+
+#right-box h1 {
+  font-weight: 800;
+  font-size: 65px;
+  margin-top: 50px;
+}
+
+#right-box h3 {
+  font-weight: 800;
+  font-size: 35px;
+  margin-top: 30px;
+}
+
+#signup-button {
+  display: block;
+  background-color: #1DA1F2;
+  color: white;
+  border: 1px solid #1DA1F2;
+  font-size: 18px;
+  width: 60%;
+  padding: 10px 0px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#signup-button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #1991DA;
+}
+
+#login-button {
+  display: block;
+  background-color: white;
+  color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  font-size: 18px;
+  width: 60%;
+  padding: 10px 0px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#login-button:hover {
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+#login-button a {
+  text-decoration: none;
+  color:#1DA1F2;
+  font-weight: 600;
+  padding: 2% 38%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 13px;
+  color: grey;
+  width: 33%;
+  margin-bottom: 30px;
+}
+
+/* ------------- hidden signup form ------------ */
+#hidden-signup-bg-grey {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 9;
+}
+
+#hidden-signup-form {
+  background-color: white;
+  z-index: 99;
+  width: 50%;
+  padding: 20px 0px;
+  position: absolute;
+  top:0;
+  left: 0;
+  margin-left:24%;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+
+#close-btn {
+  position: absolute;
+  right: 0;
+  top:0;
+}
+
+#img-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#img-container img {
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#hidden-signup-form form {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#hidden-signup-form form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+#hidden-signup-form form input {
+  display: block;
+  margin-bottom: 10px;
+  width: 97%;
+  border: 1px solid #868686;
+  border-radius: 3px;
+  padding: 10px 5px;
+  font-size: 16px;
+}
+
+#terms {
+  font-size: 12px;
+}
