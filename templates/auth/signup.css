@@ -15,7 +15,8 @@ form border:    #E5E8E8
 }
 
 body {
-
+  padding: 0px;
+  margin: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {

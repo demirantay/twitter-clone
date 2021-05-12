@@ -1,0 +1,116 @@
+
+#terms-banner {
+  height: 50%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #1DA1F2;
+  padding: 30px 0px;
+}
+
+#terms-banner h1 {
+  color: white;
+  font-weight: 800;
+  font-size: 70px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#terms-container {
+  border: 1px solid transparent;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+#terms-container h3 {
+  font-weight: 800;
+}
+
+#terms-container ul {
+  margin-left: -10px;
+}
+
+#terms-container ul li {
+  margin-bottom: 15px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #terms-banner h1 {
+    font-size: 30px;
+    width: 90%;
+  }
+
+  #terms-container {
+    width: 90%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #terms-banner h1 {
+    font-size: 30px;
+    width: 90%;
+  }
+
+  #terms-container {
+    width: 90%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #terms-banner h1 {
+    font-size: 30px;
+    width: 90%;
+  }
+
+  #terms-container {
+    width: 90%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #terms-banner h1 {
+    font-size: 60px;
+    width: 60%;
+  }
+
+  #terms-container {
+    width: 60%;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #terms-banner h1 {
+    font-size: 60px;
+    width: 60%;
+  }
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
