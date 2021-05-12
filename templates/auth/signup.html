@@ -18,7 +18,7 @@
   <h1>Happening now</h1>
   <h3>Join Cwitter today.</h3>
   <button id="signup-button">Sign up</button>
-  <button id="login-button"><a href="">Log in</a></button>
+  <button id="login-button"><a href="{% url 'login' %}">Log in</a></button>
   <button id="login-button"><a href="">Demo</a></button>
 
   <p id="footer">Twitter is a registered trademark of Twitter Inc. This project is
@@ -57,7 +57,7 @@
     <input type="text" placeholder="Create a username." name="username"/>
 
     <p id="terms">
-      By clicking on sign-up, you agree to Cwitter's <a href="">Terms and Conditions of Use</a>.
+      By clicking on sign-up, you agree to Cwitter's <a href="{% url 'terms' %}">Terms and Conditions of Use</a>.
     </p>
 
     <input id="signup-submit-btn" type="submit" value="Sign up" name="signup_submit_button" />

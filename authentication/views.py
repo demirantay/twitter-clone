@@ -154,3 +154,45 @@ def signup(request):
     }
 
     return render(request, "auth/signup.html", data)
+
+
+def login(request):
+    """
+    Login page where the users can login to the site
+    """
+    # admin user session pop
+    # admin user session pop
+    # Deleting any sessions regarding top-tier type of users
+
+    # Deleting sessions regarding basic users
+    if "basic_user_email" in request.session:
+        del request.session["basic_user_email"]
+        del request.session["basic_user_username"]
+        del request.session["basic_user_logged_in"]
+
+    # Login Form Processing
+    invalid_credentials = False
+
+
+    data = {
+         "invalid_credentials": invalid_credentials,
+    }
+
+    return render(request, "auth/login.html", data)
+
+
+def terms(request):
+    """in this page the users can see the terms of the site"""
+
+    # admin user session pop
+    # admin user session pop
+    # Deleting any sessions regarding top-tier type of users
+
+    # Deleting sessions regarding basic users
+    if "basic_user_email" in request.session:
+        del request.session["basic_user_email"]
+        del request.session["basic_user_username"]
+        del request.session["basic_user_logged_in"]
+
+    data = {}
+    return render(request, "auth/terms.html", data)
