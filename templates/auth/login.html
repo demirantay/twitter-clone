@@ -1,54 +1,30 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Cwitter</title>
+{% extends 'vanilla_base.html' %}
+{% load static %}
 
-    <!-- Meta Info -->
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="demir antay" />
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/auth/login.css' %}" />
+{% endblock %}
 
-    <!-- FAVICON -->
-    <link rel="icon" href="logo.png" />
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- FONT AWSOME -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <!-- REMIX ICON -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-
-    <!-- BASE CSS LINKS -->
-    <link rel="stylesheet" type="text/css" href="signup.css" />
-    <link rel="stylesheet" type="text/css" href="login.css" />
-
-
-  </head>
-
-  <body>
+{% block content %}
 
     <div id="login-container">
-        <img src="logo.png" alt="logo" />
+        <img src="{% static 'branding/logo.png' %}" alt="logo" />
         <h1>Log in to Cwitter</h1>
 
-        <form>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <input type="submit" value="Log in" id="login-submit-btn" />
+        {% if invalid_credentials == True %}
+          <p style="color:red;">
+            Invalid Credentials!
+          </p>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Username" name="username" />
+            <input type="password" placeholder="Password" name="password" />
+            <input type="submit" value="Log in" id="login-submit-btn" name="login_form_submit_btn" />
         </form>
 
-        <p><a href="">Demo</a> . <a href="">Sign up for Cwitter</a></p>
+        <p><a href="">Demo</a> . <a href="{% url 'signup' %}">Sign up for Cwitter</a></p>
     </div>
 
-  </body>
-</html>
+{% endblock %}

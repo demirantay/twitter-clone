@@ -173,12 +173,58 @@ def login(request):
     # Login Form Processing
     invalid_credentials = False
 
+    if request.POST.get("login_form_submit_btn"):
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # checking if the inputs are empty
+        if bool(username) == False or bool(password) == False:
+            invalid_credentials = True
+        else:
+            # Check if the user credits are right and if they
+            # are log the user into the system and add sessions
+            try:
+                user = User.objects.get(username=username)
+            except ObjectDoesNotExist:
+                user = None
+
+            if user == None:
+                invalid_credentials = True
+            else:
+                # check password if it matches
+                # redirect to home with sessions
+                is_valid = user.check_password(password)
+
+                if is_valid == True:
+                    # update user info sessions
+                    request.session["basic_user_email"] = user.email
+                    request.session["basic_user_username"] = user.username
+                    request.session["basic_user_logged_in"] = True
+                    return HttpResponseRedirect("/")
+                else:
+                    invalid_credentials = True
+
+    # Preventing brute force
+    # ... havent implemented this yet
 
     data = {
          "invalid_credentials": invalid_credentials,
     }
 
     return render(request, "auth/login.html", data)
+
+
+def logout(request):
+    """
+    if users visit this page it logs her out.
+    """
+    # Deleting sessions regarding basic users
+    if "basic_user_email" in request.session:
+        del request.session["basic_user_email"]
+        del request.session["basic_user_username"]
+        del request.session["basic_user_logged_in"]
+
+    return HttpResponseRedirect("/")
 
 
 def terms(request):
