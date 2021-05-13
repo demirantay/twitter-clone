@@ -8,6 +8,9 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 # My Module Imports
+from authentication.models import BasicUserProfile
+
+from utils.session_utils import get_current_user, get_current_user_profile
 
 
 def home(request):
@@ -17,6 +20,22 @@ def home(request):
     # admin user session pop
     # Deleting any sessions regarding top-tier type of users
 
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    data = {}
-    return render(request, "home/home.html", data)
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+
+    data = {
+
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return render(request, "home/home.html", data)
