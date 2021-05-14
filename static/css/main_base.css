@@ -313,4 +313,266 @@ h1, h2, h3, h4, h5, h6 {
   width: 38%;
   z-index: 9;
   background-color: white;
+  overflow-y: scroll;
+}
+
+#right-nav-search-container {
+  width: 82%;
+  margin-left: 6%;
+  margin-top: 10px;
+}
+
+#right-nav-search-container form {
+
+}
+
+#right-nav-search-container input {
+  vertical-align: middle;
+  display: inline-block;
+
+}
+
+#search-submit-btn {
+  font-size: 15px;
+  border-radius: 25px 0px 0px 25px;
+  border: 2px solid #EBEEF0;
+  background-color: #EBEEF0;
+  padding: 7px 7px;
+}
+
+#search-text-input {
+  border: 2px solid #EBEEF0;
+  font-size: 15px;
+  padding: 10px 0px;
+  border-radius: 0px 25px 25px 0px;
+  background-color: #EBEEF0;
+  margin-left: -5px;
+  width: 80%;
+}
+
+#search-text-input:focus {
+  outline: none;
+}
+
+#trends-for-you {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+}
+
+#trends-for-you-header {
+  padding: 0px 0px;
+}
+
+#trends-for-you-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#trends-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#trends-for-you a {
+  text-decoration: none;
+  color: black;
+}
+
+#trends-cell {
+  border-bottom: 1px solid #EBEEF0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#trends-cell:nth-child(3) {
+  border-bottom: 0px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#trends-cell:hover {
+  cursor: pointer;
+  transition: 0.1s;
+  background-color: #EFF1F2;
+}
+
+#trends-cell p {
+  margin: 0px;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+#trends-cell h4 {
+  margin: 0px;
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 16px;
+
+}
+
+/* ------ who to follow ------*/
+#who-to-follow {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#who-to-follow a {
+  text-decoration: none;
+  color: black;
+}
+
+#who-to-follow-header {
+    padding: 0px 0px;
+}
+
+#who-to-follow-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#who-to-follow-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#who-to-follow-cell-left-part {
+  width: 17%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+#who-to-follow-profile-photo {
+  height: 40px;
+  width: 45px;
+  background-color: lightgrey;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-left: 10px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#who-to-follow-cell {
+  padding: 10px 0px;
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#who-to-follow-cell-center-part {
+  width: 48%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#who-to-follow-cell-center-part h4 {
+  margin: 0px;
+}
+
+#who-to-follow-cell-center-part p {
+  margin: 0px;
+}
+
+#who-to-follow-cell-right-part {
+  width: 28%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#who-to-follow-cell-right-part form {
+
+}
+
+#who-to-follow-cell-right-part form input {
+  background-color: transparent;
+  border: 1px solid #1DA1F2;
+  color: #1DA1F2;
+  padding: 5px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+#who-to-follow-cell-right-part form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+/* ------ tpocs to follow ------*/
+
+#topics-to-follow {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+#topics-to-follow-header {
+  padding: 0px 0px;
+  margin-bottom: -10px;
+}
+
+#topics-to-follow-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#topics-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#topics-to-follow a {
+  text-decoration: none;
+  color: black;
+}
+
+#topics-to-follow-cell {
+  padding: 15px 0px;
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#topics-to-follow-cell:hover {
+  cursor: pointer;
+  transition: 0.1s;
+  background-color: #EFF1F2;
+}
+
+#topics-to-follow-cell h4 {
+  margin: 0px;
+  margin-left: 20px;
+  font-weight: 800;
+}
+
+#topics-to-follow-cell p {
+  margin: 0px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: grey;
 }
