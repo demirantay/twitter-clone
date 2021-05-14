@@ -1,0 +1,130 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Cwitter</title>
+
+    <!-- Meta Info -->
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="demir antay" />
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{% static 'branding/logo.png' %}" />
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FONT AWSOME -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- REMIX ICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <!-- BASE CSS LINKS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main_base.css' %}" />
+
+    {% block css_link %}
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <!-- left navigation -->
+    <div id="left-navigation">
+      <p><a href=""><img src="{% static 'branding/logo.png' %}" alt="logo.txt"/></a></p>
+      <p><a href=""><i class="ri-home-2-line"></i></a></p>
+      <p><a href=""><i class="ri-hashtag"></i></a></p>
+      <p><a href=""><i class="ri-notification-4-line"></i></a></p>
+      <p><a href=""><i class="ri-mail-line"></i></a></p>
+      <p><a href=""><i class="ri-user-2-line"></i></a></p>
+      <p><a href=""><i class="ri-settings-5-line"></i></a></p>
+
+      <button id="tweet-panel-open-btn"><i class="ri-add-line"></i></button>
+
+      <div id="profile-photo-left-nav" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+    </div>
+
+    <div id="hidden-logout-panel">
+      <p><a href="">Log out @Demir00antay</a></p>
+    </div>
+
+    <script>
+      let hidden_logout_panel = document.getElementById("hidden-logout-panel");
+      let hidden_logout_panel_toggle = document.getElementById("profile-photo-left-nav");
+
+      hidden_logout_panel_toggle.onclick = function() {
+
+        if (hidden_logout_panel.style.display == "block") {
+          hidden_logout_panel.style.display = "none";
+        } else {
+          hidden_logout_panel.style.display = "block";
+        }
+      }
+    </script>
+
+    <div id="hidden-tweet-panel-bg"></div>
+    <div id="hidden-tweet-panel">
+      <div id="hidden-tweet-panel-header">
+        <button id="tweet_panel_close_btn"><i class="ri-close-fill"></i></button>
+      </div>
+      <div id="hidden-tweet-panel-form-container">
+        <div id="hidden-tweet-panel-form-container-left-box">
+          <div id="profile-photo-hidden-panel" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+        </div>
+        <div id="hidden-tweet-panel-form-container-right-box">
+          <form>
+              <textarea placeholder="What's happening?"></textarea>
+              <div id="horizontal-line"></div>
+              <label for="hidden_tweet_panel_img"><i class="ri-image-add-line"></i></label>
+              <input type="file" id="hidden_tweet_panel_img" />
+              <input type="submit" value='Tweet' id="hidden_panel_tweet_submit_btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let hidden_panel = document.getElementById("hidden-tweet-panel");
+      let hidden_panel_bg = document.getElementById("hidden-tweet-panel-bg");
+      let hidden_panel_open_btn = document.getElementById("tweet-panel-open-btn");
+      let hidden_panel_close_btn = document.getElementById("tweet_panel_close_btn");
+
+      hidden_panel_open_btn.onclick = function() {
+        hidden_panel.style.display = "block";
+        hidden_panel_bg.style.display = "block";
+      }
+
+      hidden_panel_close_btn.onclick = function() {
+        hidden_panel.style.display = "none";
+        hidden_panel_bg.style.display = "none";
+      }
+    </script>
+
+    <!-- content block container -->
+    <div id="content-container">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+
+    <!-- right navigation -->
+    <div id="right-navigation">
+
+    </div>
+
+
+  </body>
+</html>
