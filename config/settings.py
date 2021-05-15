@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'home',
     'hashtag',
     'notification',
+    'chat',
+    'profile_settings',
 ]
 
 MIDDLEWARE = [

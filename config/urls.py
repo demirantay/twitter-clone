@@ -9,6 +9,9 @@ urlpatterns = [
     path("", include("home.urls")),
     path("", include("hashtag.urls")),
     path("", include("notification.urls")),
+    path("", include("chat.urls")),
+    path("", include("profile_app.urls")),
+    path("", include("profile_settings.urls")),
 ]
 
 if settings.DEBUG:
