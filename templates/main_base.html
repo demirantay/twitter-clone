@@ -43,8 +43,8 @@
 
     <!-- left navigation -->
     <div id="left-navigation">
-      <p><a href=""><img src="{% static 'branding/logo.png' %}" alt="logo.txt"/></a></p>
-      <p><a href=""><i class="ri-home-2-line"></i></a></p>
+      <p><a href="{% url 'home' %}"><img src="{% static 'branding/logo.png' %}" alt="logo.txt"/></a></p>
+      <p><a href="{% url 'home' %}"><i class="ri-home-2-line"></i></a></p>
       <p><a href=""><i class="ri-hashtag"></i></a></p>
       <p><a href=""><i class="ri-notification-4-line"></i></a></p>
       <p><a href=""><i class="ri-mail-line"></i></a></p>
