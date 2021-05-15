@@ -112,6 +112,47 @@
       }
     </script>
 
+    <!-- mobile - top and hidden navigation -->
+    <div id="temporary-top-mobile-nav">
+      <div id="profile-photo-mobile-left-nav-opener" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+      <h1>Home</h1>
+    </div>
+
+    <div id="hidden-mobile-left-nav-bg"></div>
+    <div id="hidden-mobile-left-nav">
+      <div id="hidden-mobile-left-nav-header">
+        <h4>Account info</h4>
+        <button id="hidden-mobile-left-nav-close-btn"><i class="ri-close-line"></i></button>
+      </div>
+      <div id="hidden-mobile-nav-links">
+        <a href=""><i class="ri-home-2-line"></i> Home</a>
+        <a href=""><i class="ri-hashtag"></i> Explore</a>
+        <a href=""><i class="ri-notification-4-line"></i> Notifications</a>
+        <a href=""><i class="ri-mail-line"></i> Messages</a>
+        <a href=""><i class="ri-user-2-line"></i> Profile</a>
+        <a href=""><i class="ri-settings-5-line"></i> Settings</a>
+        <a href="" id="mobile-logout-btn"><i class="ri-logout-box-line"></i> Log out</a>
+      </div>
+    </div>
+
+    <script>
+      hidden_moblie_left_nav = document.getElementById("hidden-mobile-left-nav");
+      hidden_moblie_left_nav_bg = document.getElementById("hidden-mobile-left-nav-bg");
+      hidden_mobile_left_nav_open_btn = document.getElementById("profile-photo-mobile-left-nav-opener");
+      hidden_mobile_left_nav_close_btn = document.getElementById("hidden-mobile-left-nav-close-btn");
+
+      hidden_mobile_left_nav_open_btn.onclick = function() {
+        hidden_moblie_left_nav.style.display = "block";
+        hidden_moblie_left_nav_bg.style.display = "block";
+      }
+
+      hidden_mobile_left_nav_close_btn.onclick = function() {
+        hidden_moblie_left_nav.style.display = "none";
+        hidden_moblie_left_nav_bg.style.display = "none";
+      }
+
+    </script>
+
     <!-- content block container -->
     <div id="content-container">
       {% block content %}
@@ -286,9 +327,65 @@
         </a>
 
       </div>
-
-
     </div>
+
+
+    <!-- mobile bottom navigation -->
+
+    <div id="mobile-bottom-nav-tweet-panel-open-btn">
+      <i class="ri-leaf-line"></i>
+    </div>
+
+    <div id="hidden-mobile-tweet-panel">
+      <div id="hidden-mobile-tweet-panel-header">
+        <button id="mobile-hidden-tweet-close-btn"><i class="ri-arrow-left-line"></i></button>
+        <form>
+          <input type="submit" value="Tweet" id="hidden-mobile-tweet-submit-btn" />
+
+          <div id="hidden-mobile-tweet-panel-horizontal-line"></div>
+
+          <div id="hidden-mobile-tweet-panel-profile-photo" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+
+          <textarea placeholder="What's happening?"></textarea>
+
+          <label for="hidden-tweet-panel-img-input"><i class="ri-image-add-line"></i></label>
+          <input type="file" id="hidden-tweet-panel-img-input" />
+
+        </form>
+      </div>
+    </div>
+
+    <div id="mobile-bottom-navigation">
+      <div id="mobile-bottom-col">
+        <a href=""><i class="ri-home-2-line"></i></a>
+      </div>
+      <div id="mobile-bottom-col">
+        <a href=""><i class="ri-search-line"></i></a>
+      </div>
+      <div id="mobile-bottom-col">
+        <a href=""><i class="ri-notification-4-line"></i></a>
+      </div>
+      <div id="mobile-bottom-col">
+        <a href=""><i class="ri-mail-line"></i></a>
+      </div>
+    </div>
+
+
+    <script>
+
+      let hidden_mobile_tweet_panel = document.getElementById("hidden-mobile-tweet-panel");
+      let hidden_mobile_tweet_panel_open = document.getElementById("mobile-bottom-nav-tweet-panel-open-btn");
+      let hidden_mobile_tweet_panel_close = document.getElementById("mobile-hidden-tweet-close-btn");
+
+      hidden_mobile_tweet_panel_open.onclick = function() {
+        hidden_mobile_tweet_panel.style.display = "block";
+      }
+
+      hidden_mobile_tweet_panel_close.onclick = function() {
+        hidden_mobile_tweet_panel.style.display = "none";
+      }
+
+    </script>
 
 
   </body>

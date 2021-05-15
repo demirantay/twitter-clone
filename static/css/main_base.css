@@ -576,3 +576,415 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   color: grey;
 }
+
+
+/* ---------------------------- mobile  --------------------------------*/
+#temporary-top-mobile-nav {
+  border-bottom: 1px solid #C4CFD6;
+  display: none;
+}
+
+#profile-photo-mobile-left-nav-opener {
+  height: 30px;
+  width: 30px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5%;
+  margin-right: 20px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#profile-photo-mobile-left-nav-opener:hover {
+  cursor: pointer;
+}
+
+#temporary-top-mobile-nav h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#hidden-mobile-left-nav-bg {
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  display: none;
+}
+
+#hidden-mobile-left-nav {
+  transition: 0.5s;
+  background-color: white;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom:0;
+  width: 85%;
+  z-index: 999;
+  display: none;
+}
+
+#hidden-mobile-left-nav-header {
+  border-bottom: 1px solid #C4CFD6;
+}
+
+#hidden-mobile-left-nav-header h4 {
+  font-size: 19px;
+  font-weight: 900;
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5%;
+}
+
+#hidden-mobile-left-nav-header button {
+  position: absolute;
+  right: 0;
+  top:0;
+  color: #1DA1F2;
+  background-color: white;
+  border: 1px solid transparent;
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-right: 4%;
+}
+
+#hidden-mobile-left-nav-header button:hover {
+  cursor: pointer;
+}
+
+#hidden-mobile-nav-links {
+
+}
+
+#hidden-mobile-nav-links a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  vertical-align: middle;
+  padding: 12px 15px;
+}
+
+#hidden-mobile-nav-links a:hover {
+  background-color: #F7F9FA;
+  transition: 0.2s;
+}
+
+#hidden-mobile-nav-links a i {
+  color: grey;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#mobile-logout-btn {
+  border-top: 1px solid #C4CFD6;
+}
+
+
+#mobile-bottom-navigation {
+  border-top: 1px solid lightgrey;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding-left: 10px;
+  display: none;
+}
+
+#mobile-bottom-col {
+  width: 23%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#mobile-bottom-col a {
+  color: grey;
+  text-decoration: none;
+  font-size: 25px;
+  padding-top: 7px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+#mobile-bottom-col a:hover {
+  transition: 0.2s;
+  background-color: #E8F6FD;
+  color: #1DA1F2;
+}
+
+#mobile-bottom-nav-tweet-panel-open-btn {
+  color: white;
+  background-color: #1DA1F2;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 60px;
+  font-size: 35px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 12px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+  margin-right: 4%;
+  display: none;
+}
+
+#mobile-bottom-nav-tweet-panel-open-btn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #1991DA;
+}
+
+#hidden-mobile-tweet-panel {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: white;
+  z-index: 9999 !important;
+  display: none;
+}
+
+#hidden-mobile-tweet-panel-header {
+
+}
+
+#hidden-mobile-tweet-panel-horizontal-line {
+  border-bottom: 1px solid #C4CFD6;
+}
+
+#hidden-mobile-tweet-panel-header button {
+  color: #1DA1F2;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 23px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+#hidden-mobile-tweet-panel-header button:hover {
+  cursor: pointer;
+}
+
+#hidden-mobile-tweet-panel-header form {
+
+}
+
+#hidden-mobile-tweet-submit-btn {
+  position: absolute;
+  top:0;
+  right:0;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  color: white;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 25px;
+  margin-right: 5%;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+#hidden-mobile-tweet-submit-btn:hover {
+  transition: 0.2s;
+  background-color: #1991DA;
+  cursor: pointer;
+}
+
+#hidden-mobile-tweet-panel-profile-photo {
+  display: inline-block;
+  vertical-align: top;
+  height: 35px;
+  width: 35px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  margin-left: 5%;
+  margin-top: 10px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hidden-mobile-tweet-panel-header form textarea {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 2%;
+  margin-right: 5%;
+  width: 70%;
+  height: 150px;
+  border: 0px;
+  border-bottom: 1px solid #E5E8E8;
+}
+
+#hidden-mobile-tweet-panel-header form textarea:focus {
+  outline: none;
+}
+
+#hidden-tweet-panel-img-input {
+  display: none;
+}
+
+#hidden-mobile-tweet-panel-header form label {
+  margin-right: 10%;
+  font-size: 30px;
+  color: #1DA1F2;
+  float: right;
+  margin-top: 8px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 14%;
+    margin-right: 10%;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
