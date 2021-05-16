@@ -120,8 +120,14 @@
     </script>
 
     <!-- mobile - top and hidden navigation -->
+
     <div id="temporary-top-mobile-nav">
-      <div id="profile-photo-mobile-left-nav-opener" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+      {% if current_basic_user_profile.profile_photo  %}
+      <div id="profile-photo-mobile-left-nav-opener" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+      {% else %}
+        <div id="profile-photo-mobile-left-nav-opener"></div>
+      {% endif %}
+
       <h1>Home</h1>
     </div>
 
@@ -132,13 +138,13 @@
         <button id="hidden-mobile-left-nav-close-btn"><i class="ri-close-line"></i></button>
       </div>
       <div id="hidden-mobile-nav-links">
-        <a href=""><i class="ri-home-2-line"></i> Home</a>
-        <a href=""><i class="ri-hashtag"></i> Explore</a>
-        <a href=""><i class="ri-notification-4-line"></i> Notifications</a>
-        <a href=""><i class="ri-mail-line"></i> Messages</a>
-        <a href=""><i class="ri-user-2-line"></i> Profile</a>
-        <a href=""><i class="ri-settings-5-line"></i> Settings</a>
-        <a href="" id="mobile-logout-btn"><i class="ri-logout-box-line"></i> Log out</a>
+        <a href="{% url 'home' %}"><i class="ri-home-2-line"></i> Home</a>
+        <a href="{% url 'explore' %}"><i class="ri-hashtag"></i> Explore</a>
+        <a href="{% url 'notification' %}"><i class="ri-notification-4-line"></i> Notifications</a>
+        <a href="{% url 'chat_landing' %}"><i class="ri-mail-line"></i> Messages</a>
+        <a href="{% url 'profile' %}"><i class="ri-user-2-line"></i> Profile</a>
+        <a href="{% url 'settings' %}"><i class="ri-settings-5-line"></i> Settings</a>
+        <a href="{% url 'logout' %}" id="mobile-logout-btn"><i class="ri-logout-box-line"></i> Log out</a>
       </div>
     </div>
 
@@ -296,17 +302,23 @@
     <div id="hidden-mobile-tweet-panel">
       <div id="hidden-mobile-tweet-panel-header">
         <button id="mobile-hidden-tweet-close-btn"><i class="ri-arrow-left-line"></i></button>
-        <form>
-          <input type="submit" value="Tweet" id="hidden-mobile-tweet-submit-btn" />
+        <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="submit" value="Tweet" id="hidden-mobile-tweet-submit-btn" name="mobile_hidden_tweet_submit_btn" />
 
           <div id="hidden-mobile-tweet-panel-horizontal-line"></div>
 
-          <div id="hidden-mobile-tweet-panel-profile-photo" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+          {% if current_basic_user_profile.profile_photo %}
+          <div id="hidden-mobile-tweet-panel-profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+          {% else %}
+            <div id="hidden-mobile-tweet-panel-profile-photo" ></div>
+          {% endif %}
 
-          <textarea placeholder="What's happening?"></textarea>
+
+          <textarea placeholder="What's happening?" name="tweet_content"></textarea>
 
           <label for="hidden-tweet-panel-img-input"><i class="ri-image-add-line"></i></label>
-          <input type="file" id="hidden-tweet-panel-img-input" />
+          <input type="file" id="hidden-tweet-panel-img-input" name="tweet_image" />
 
         </form>
       </div>
@@ -314,16 +326,18 @@
 
     <div id="mobile-bottom-navigation">
       <div id="mobile-bottom-col">
-        <a href=""><i class="ri-home-2-line"></i></a>
+        <a href="{% url 'home' %}"><i class="ri-home-2-line"></i></a>
+      </div>
+      {% with foo="foo" %}
+      <div id="mobile-bottom-col">
+        <a href="{% url 'search' foo %}"><i class="ri-search-line"></i></a>
+      </div>
+      {% endwith %}
+      <div id="mobile-bottom-col">
+        <a href="{% url 'notification' %}"><i class="ri-notification-4-line"></i></a>
       </div>
       <div id="mobile-bottom-col">
-        <a href=""><i class="ri-search-line"></i></a>
-      </div>
-      <div id="mobile-bottom-col">
-        <a href=""><i class="ri-notification-4-line"></i></a>
-      </div>
-      <div id="mobile-bottom-col">
-        <a href=""><i class="ri-mail-line"></i></a>
+        <a href="{% url 'chat_landing' %}"><i class="ri-mail-line"></i></a>
       </div>
     </div>
 
