@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from authentication.models import BasicUserProfile
+from .models import Tweet
 
 from utils.session_utils import get_current_user, get_current_user_profile
 
@@ -29,6 +30,22 @@ def home(request):
         BasicUserProfile,
         ObjectDoesNotExist
     )
+
+    # Tweet form processing
+    if request.POST.get("hidden_panel_tweet_submit_btn"):
+        tweet_content = request.POST.get("tweet_content")
+        tweet_image = request.FILES.get("tweet_image")
+
+        new_tweet = Tweet(
+            user=current_basic_user_profile, content=tweet_content,
+            image=tweet_image
+        )
+        new_tweet.save()
+
+    # Search form processing
+    if request.POST.get("right_nav_search_submit_btn"):
+        search_input = request.POST.get("search_input")
+        return HttpResponseRedirect("/search/" + str(search_input) + "/")
 
 
     data = {
