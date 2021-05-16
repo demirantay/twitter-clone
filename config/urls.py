@@ -12,6 +12,7 @@ urlpatterns = [
     path("", include("chat.urls")),
     path("", include("profile_app.urls")),
     path("", include("profile_settings.urls")),
+    path("", include("search.urls")),
 ]
 
 if settings.DEBUG:

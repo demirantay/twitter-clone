@@ -17,3 +17,11 @@ def profile(request):
     data = {}
 
     return render(request, "profile/profile.html", data)
+
+
+def other_user_profile(request, other_user_username):
+    """aaa"""
+
+    data = {}
+
+    return render(request, "profile/other_user_profile.html", data)

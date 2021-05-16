@@ -1,4 +1,5 @@
 # Main Imports
+import random
 
 # Django Imports
 from django.shortcuts import render, get_object_or_404, HttpResponse
@@ -8,8 +9,9 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 # My Module Imports
-from authentication.models import BasicUserProfile
+from authentication.models import BasicUserProfile, Follower
 from .models import Tweet
+from hashtag.models import Topic
 
 from utils.session_utils import get_current_user, get_current_user_profile
 
@@ -47,9 +49,53 @@ def home(request):
         search_input = request.POST.get("search_input")
         return HttpResponseRedirect("/search/" + str(search_input) + "/")
 
+    # Who to follow box cells
+    try:
+        latest_user = BasicUserProfile.objects.last()
+    except ObjectDoesNotExist:
+        latest_user = None
+
+    number_1 = random.randint(1, latest_user.id)
+    number_2 = random.randint(1, latest_user.id)
+    number_3 = random.randint(1, latest_user.id)
+
+    who_to_follow = []
+
+    who_to_follow.append(BasicUserProfile.objects.get(id=number_1))
+    who_to_follow.append(BasicUserProfile.objects.get(id=number_2))
+    who_to_follow.append(BasicUserProfile.objects.get(id=number_3))
+
+    if request.POST.get("base_who_to_follow_submit_btn"):
+        hidden_user_id = request.POST.get("hidden_user_id")
+        followed_user = BasicUserProfile.objects.get(id=hidden_user_id)
+
+        new_follow = Follower(
+            following=followed_user, follower=current_basic_user_profile,
+        )
+        new_follow.save()
+        return HttpResponseRedirect(
+            "/profile/" + followed_user.user.username + "/"
+        )
+
+    # Topics to follow
+    try:
+        all_topics = Topic.objects.all()
+        latest_topic = Topic.objects.last()
+    except ObjectDoesNotExist:
+        all_topics = None
+        latest_topic = None
+
+    topics_to_follow = []
+
+    for i in range(5):
+        random_topic = all_topics[random.randint(1, latest_topic.id-1)]
+        topics_to_follow.append(random_topic)
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "who_to_follow": who_to_follow,
+        "topics_to_follow": topics_to_follow,
     }
 
     if current_basic_user == None:

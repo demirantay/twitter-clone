@@ -33,3 +33,29 @@ class BasicUserProfile(models.Model):
 
     def __str__(self):
         return "Settings id: " + str(self.id) + " | User: " + str(self.user)
+
+
+# Follower
+# ----------
+# This model holds the follwers of Baseic user profiles
+class Follower(models.Model):
+    creation_date = models.DateField(default=timezone.now)
+    id = models.AutoField(primary_key=True)
+    following = models.ForeignKey(
+        BasicUserProfile,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="following"
+    )
+    follower = models.ForeignKey(
+        BasicUserProfile,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="follower"
+    )
+
+    def __str__(self):
+        return "Following: " + str(self.following) + \
+                " | Follower: " + str(self.follower)

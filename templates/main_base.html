@@ -53,11 +53,17 @@
 
       <button id="tweet-panel-open-btn"><i class="ri-add-line"></i></button>
 
-      <div id="profile-photo-left-nav" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+      {% if current_basic_user_profile.profile_photo  %}
+        <div id="profile-photo-left-nav" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+      {% else %}
+        <div id="profile-photo-left-nav"></div>
+      {% endif %}
+
+
     </div>
 
     <div id="hidden-logout-panel">
-      <p><a href="{% url 'logout' %}">Log out @Demir00antay</a></p>
+      <p><a href="{% url 'logout' %}">Log out @{{ current_basic_user.username }}</a></p>
     </div>
 
     <script>
@@ -230,59 +236,30 @@
           <div id="who-to-follow-horizontal-line"></div>
         </div>
 
-        <a href="">
-          <div id="who-to-follow-cell">
-            <div id="who-to-follow-cell-left-part">
-              <div id="who-to-follow-profile-photo" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
+        {% for user in who_to_follow %}
+          <a href="">
+            <div id="who-to-follow-cell">
+              <div id="who-to-follow-cell-left-part">
+                {% if user.profile_photo %}
+                  <div id="who-to-follow-profile-photo" style="background-image: url('{{ user.profile_photo.url }}');"></div>
+                {% else %}
+                <div id="who-to-follow-profile-photo"></div>
+                {% endif %}
+              </div>
+              <div id="who-to-follow-cell-center-part">
+                <h4>{{ user.full_name }}</h4>
+                <p>@{{ user.user.username }}</p>
+              </div>
+              <div id="who-to-follow-cell-right-part">
+                <form action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ user.id }}" name="hidden_user_id" />
+                    <input type="submit" value="Follow" name="base_who_to_follow_submit_btn" />
+                </form>
+              </div>
             </div>
-            <div id="who-to-follow-cell-center-part">
-              <h4>James Corrier</h4>
-              <p>@JamezBoy</p>
-            </div>
-            <div id="who-to-follow-cell-right-part">
-              <form>
-                  <input type="submit" value="Follow" />
-              </form>
-            </div>
-          </div>
-        </a>
-
-
-        <a href="">
-          <div id="who-to-follow-cell">
-            <div id="who-to-follow-cell-left-part">
-              <div id="who-to-follow-profile-photo" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
-            </div>
-            <div id="who-to-follow-cell-center-part">
-              <h4>James Corrier</h4>
-              <p>@JamezBoy</p>
-            </div>
-            <div id="who-to-follow-cell-right-part">
-              <form>
-                  <input type="submit" value="Follow" />
-              </form>
-            </div>
-          </div>
-        </a>
-
-
-
-        <a href="">
-          <div id="who-to-follow-cell">
-            <div id="who-to-follow-cell-left-part">
-              <div id="who-to-follow-profile-photo" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
-            </div>
-            <div id="who-to-follow-cell-center-part">
-              <h4>James Corrier</h4>
-              <p>@JamezBoy</p>
-            </div>
-            <div id="who-to-follow-cell-right-part">
-              <form>
-                  <input type="submit" value="Follow" />
-              </form>
-            </div>
-          </div>
-        </a>
+          </a>
+        {% endfor %}
 
       </div>
 
@@ -293,40 +270,14 @@
             <div id="topics-horizontal-line"></div>
         </div>
 
-        <a href="">
-          <div id="topics-to-follow-cell">
-            <h4>Cryptocurrency</h4>
-            <p>Popular right now</p>
-          </div>
-        </a>
-
-        <a href="">
-          <div id="topics-to-follow-cell">
-            <h4>Cryptocurrency</h4>
-            <p>Popular right now</p>
-          </div>
-        </a>
-
-        <a href="">
-          <div id="topics-to-follow-cell">
-            <h4>Cryptocurrency</h4>
-            <p>Popular right now</p>
-          </div>
-        </a>
-
-        <a href="">
-          <div id="topics-to-follow-cell">
-            <h4>Cryptocurrency</h4>
-            <p>Popular right now</p>
-          </div>
-        </a>
-
-        <a href="">
-          <div id="topics-to-follow-cell">
-            <h4>Cryptocurrency</h4>
-            <p>Popular right now</p>
-          </div>
-        </a>
+        {% for topic in topics_to_follow %}
+          <a href="">
+            <div id="topics-to-follow-cell">
+              <h4>{{ topic.name|title }}</h4>
+              <p>Popular right now</p>
+            </div>
+          </a>
+        {% endfor %}
 
       </div>
     </div>
