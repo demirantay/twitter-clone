@@ -181,6 +181,7 @@
       </div>
 
       <!-- Trends for you -->
+      <!--
       <div id="trends-for-you">
         <div id="trends-for-you-header">
             <h3>Trends for you</h3>
@@ -228,6 +229,25 @@
         </a>
 
       </div>
+    -->
+
+    <!-- topics to follow -->
+    <div id="topics-to-follow">
+      <div id="topics-to-follow-header">
+          <h3>Topics to follow</h3>
+          <div id="topics-horizontal-line"></div>
+      </div>
+
+      {% for topic in topics_to_follow %}
+        <a href="{% url 'topic_explore' topic.name %}">
+          <div id="topics-to-follow-cell">
+            <h4>#{{ topic.name }}</h4>
+            <p>Popular right now</p>
+          </div>
+        </a>
+      {% endfor %}
+
+    </div>
 
       <!-- who to follow -->
       <div id="who-to-follow">
@@ -263,23 +283,7 @@
 
       </div>
 
-      <!-- topics to follow -->
-      <div id="topics-to-follow">
-        <div id="topics-to-follow-header">
-            <h3>Topics to follow</h3>
-            <div id="topics-horizontal-line"></div>
-        </div>
 
-        {% for topic in topics_to_follow %}
-          <a href="">
-            <div id="topics-to-follow-cell">
-              <h4>{{ topic.name|title }}</h4>
-              <p>Popular right now</p>
-            </div>
-          </a>
-        {% endfor %}
-
-      </div>
     </div>
 
 

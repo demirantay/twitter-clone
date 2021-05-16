@@ -17,3 +17,11 @@ def explore(request):
     data = {}
 
     return render(request, "hashtag/explore.html", data)
+
+
+def topic_explore(request, topic):
+    """aa"""
+
+    data = {}
+
+    return render(request, "hashtag/topic_explore.html", data)
