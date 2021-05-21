@@ -7,6 +7,136 @@
 
 {% block content %}
 
-home
+<!-- banner -->
+<div id="home-banner">
+    <h1>Home</h1>
+</div>
+
+<!-- tweet form -->
+<div id="home-tweet-form">
+  <div id="home-tweet-form-left-part">
+    <div id="home-tweet-form-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
+  </div>
+  <div id="home-tweet-form-right-part">
+    <form>
+        <textarea placeholder="What's happening?"></textarea>
+        <label for="home-tweet-file-input"><i class="ri-image-add-line"></i></label>
+        <input id="home-tweet-file-input" type="file" />
+        <input id="home-tweet-submit-btn" type="submit" value="Tweet" />
+    </form>
+  </div>
+</div>
+
+<div id="small-diviser"></div>
+
+
+<!-- all tweets listing -->
+<div id="tweet-cell-container">
+
+  <div id="tweet-cell">
+    <div id="tweet-cell-left-part">
+      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
+    </div>
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="">Keith Rabois</a></b> @rabois · 3h</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form">
+          <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
+          <p>124</p>
+        </form>
+
+        <form id="tweet-cell-retweet-form">
+          <button type="submit" form="tweet-cell-retweet-form"><i class="ri-repeat-line"></i></button>
+          <p>12</p>
+        </form>
+
+        <form id="tweet-cell-like-form">
+          <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
+          <p>1422</p>
+        </form>
+      </div>
+    </div><!-- /right-part -->
+  </div><!--/cell -->
+
+
+
+
+  <div id="tweet-cell">
+    <div id="tweet-cell-left-part">
+      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
+    </div>
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="">Keith Rabois</a></b> @rabois · 3h</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+      <div id="tweet-image" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
+
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form">
+          <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
+          <p>124</p>
+        </form>
+
+        <form id="tweet-cell-retweet-form">
+          <button type="submit" form="tweet-cell-retweet-form"><i class="ri-repeat-line"></i></button>
+          <p>12</p>
+        </form>
+
+        <form id="tweet-cell-like-form">
+          <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
+          <p>1422</p>
+        </form>
+      </div>
+    </div><!-- /right-part -->
+  </div><!--/cell -->
+
+
+
+
+
+  <div id="tweet-cell">
+
+    <p id="retweeted-link"><i class="ri-repeat-line"></i> <a href="">Yaman Akdeniz Retweeted</a></p>
+
+    <div id="tweet-cell-left-part">
+      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
+    </div>
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="">Keith Rabois</a></b> @rabois · 3h</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form">
+          <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
+          <p>124</p>
+        </form>
+
+        <form id="tweet-cell-retweet-form">
+          <button type="submit" form="tweet-cell-retweet-form"><i class="ri-repeat-line"></i></button>
+          <p>12</p>
+        </form>
+
+        <form id="tweet-cell-like-form">
+          <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
+          <p>1422</p>
+        </form>
+      </div>
+    </div><!-- /right-part -->
+  </div><!--/cell -->
+
+
+
+
+
+
+
+
+</div><!--/container -->
+
 
 {% endblock %}
