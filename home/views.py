@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from authentication.models import BasicUserProfile, Follower
-from .models import Tweet
+from .models import Tweet, TweetLike, TweetComment
 from hashtag.models import Topic
 
 from utils.session_utils import get_current_user, get_current_user_profile
@@ -102,6 +102,49 @@ def home(request):
         random_topic = all_topics[random.randint(1, latest_topic.id-1)]
         topics_to_follow.append(random_topic)
 
+    # Home Page Tweet Form Processing
+    if request.POST.get("home_page_tweet_form_submit_btn"):
+        tweet_content = request.POST.get("tweet_content")
+        tweet_image = request.FILES.get("tweet_image")
+
+        new_tweet = Tweet(
+            user=current_basic_user_profile, content=tweet_content,
+            image=tweet_image
+        )
+        new_tweet.save()
+
+        return HttpResponseRedirect("/")
+
+    # Getting all Followings
+    try:
+        all_followings = Follower.objects.filter(
+            follower=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        all_followings = None
+
+    # Get all the tweets of followings
+    tweet_feed = []
+
+    try:
+        all_tweets = Tweet.objects.all().order_by("-id")
+    except ObjectDoesNotExist:
+        all_tweets = None
+
+    for tweet in all_tweets:
+        for following in all_followings:
+            if tweet.user == following.following:
+                tweet_feed.append(tweet)
+
+    # Getting the comment amount for each tweet
+    tweet_comment_amounts = {}
+    for tweet in tweet_feed:
+        tweet_comments = TweetComment.objects.filter(tweet=tweet)
+        amount = len(tweet_comments)
+        tweet_comment_amounts[tweet.id] = amount
+
+    # Getting the likes for each tweet
+
 
 
     data = {
@@ -109,6 +152,8 @@ def home(request):
         "current_basic_user_profile": current_basic_user_profile,
         "who_to_follow": who_to_follow,
         "topics_to_follow": topics_to_follow,
+        "tweet_feed": tweet_feed,
+        "tweet_comment_amounts": tweet_comment_amounts,
     }
 
     if current_basic_user == None:
