@@ -249,18 +249,66 @@
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+  #home-banner {
+    display: none;
+  }
+
+  #home-banner h1 {
+    display: none;
+  }
+
+  #home-tweet-form {
+    display: none;
+  }
+
+  #small-diviser {
+    display: none;
+  }
 
 }
 
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  #home-banner {
+    display: none;
+  }
+
+  #home-banner h1 {
+    display: none;
+  }
+
+  #home-tweet-form {
+    display: none;
+  }
+
+  #small-diviser {
+    display: none;
+  }
 
 }
 
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+
+  #home-banner {
+    display: none;
+  }
+
+  #home-banner h1 {
+    display: none;
+  }
+
+  #home-tweet-form {
+    display: none;
+  }
+
+  #small-diviser {
+    display: none;
+  }
+
+
 }
 
 

@@ -582,6 +582,25 @@ h1, h2, h3, h4, h5, h6 {
 #temporary-top-mobile-nav {
   border-bottom: 1px solid #C4CFD6;
   display: none;
+  text-align: center;
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  height: 50px;
+  z-index: 99;
+  background-color: white;
+}
+
+#temporary-top-mobile-nav-logo {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+#temporary-top-mobile-nav-logo img {
+  height: 27px;
 }
 
 #profile-photo-mobile-left-nav-opener {
@@ -592,9 +611,12 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5%;
-  margin-right: 20px;
   margin-top: 11px;
   margin-bottom: 11px;
+
+  position: absolute;
+  left: 0;
+
 
   background-position: center;
   background-repeat: no-repeat;
@@ -867,6 +889,7 @@ h1, h2, h3, h4, h5, h6 {
   #content-container {
     margin-left: 0%;
     margin-right: 0%;
+    margin-top: 50px;
   }
 
   /* ----------------- right navigation ----------------- */
@@ -900,6 +923,7 @@ h1, h2, h3, h4, h5, h6 {
   #content-container {
     margin-left: 0%;
     margin-right: 0%;
+    margin-top: 50px;
   }
 
   /* ----------------- right navigation ----------------- */
@@ -932,6 +956,7 @@ h1, h2, h3, h4, h5, h6 {
   #content-container {
     margin-left: 0%;
     margin-right: 0%;
+    margin-top: 50px;
   }
 
   /* ----------------- right navigation ----------------- */
