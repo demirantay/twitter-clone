@@ -144,8 +144,28 @@ def home(request):
         tweet_comment_amounts[tweet.id] = amount
 
     # Getting the likes for each tweet
+    tweet_like_amounts = {}
+    for tweet in tweet_feed:
+        tweet_likes = TweetLike.objects.filter(tweet=tweet)
+        amount = len(tweet_likes)
+        tweet_like_amounts[tweet.id] = amount
 
+    # Comment Form Processing
+    if request.POST.get("tweet_cell_comment_submit_btn"):
+        current_tweet_id = request.POST.get("hidden_tweet_id")
+        current_tweet = Tweet.objects.get(id=current_tweet_id)
+        return HttpResponseRedirect("/tweet/" + str(current_tweet.id) + "/")
 
+    # Like Form Processing
+    if request.POST.get("tweet_cell_like_submit_btn"):
+        current_tweet_id = request.POST.get("hidden_tweet_id")
+        current_tweet = Tweet.objects.get(id=current_tweet_id)
+        new_like = TweetLike(
+            tweet=current_tweet,
+            liker=current_basic_user_profile
+        )
+        new_like.save()
+        return HttpResponseRedirect("/tweet/" + str(current_tweet.id) + "/")
 
     data = {
         "current_basic_user": current_basic_user,
@@ -154,9 +174,18 @@ def home(request):
         "topics_to_follow": topics_to_follow,
         "tweet_feed": tweet_feed,
         "tweet_comment_amounts": tweet_comment_amounts,
+        "tweet_like_amounts": tweet_like_amounts,
     }
 
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/signup/")
     else:
         return render(request, "home/home.html", data)
+
+
+def tweet_single(request, tweet_id):
+    """.."""
+
+    data = {}
+
+    return render(request, "home/single_tweet.html", data)

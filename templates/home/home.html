@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_link %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}" />
@@ -38,59 +39,10 @@
 <!-- all tweets listing -->
 <div id="tweet-cell-container">
 
-  <div id="tweet-cell">
-    <div id="tweet-cell-left-part">
-      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
-    </div>
-    <div id="tweet-cell-right-part">
-      <p id="tweet-cell-header"><b><a href="">Keith Rabois</a></b> @rabois · 3h</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-      <div id="tweet-cell-right-part-bottom-links">
-        <form id="tweet-cell-comment-form">
-          <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
-          <p>124</p>
-        </form>
-
-        <form id="tweet-cell-like-form">
-          <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
-          <p>1422</p>
-        </form>
-      </div>
-    </div><!-- /right-part -->
-  </div><!--/cell -->
-
-
-
-
-  <div id="tweet-cell">
-    <div id="tweet-cell-left-part">
-      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
-    </div>
-    <div id="tweet-cell-right-part">
-      <p id="tweet-cell-header"><b><a href="">Keith Rabois</a></b> @rabois · 3h</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-      <div id="tweet-image" style="background-image:url('{% static 'test/test.jpg' %}')"></div>
-
-      <div id="tweet-cell-right-part-bottom-links">
-        <form id="tweet-cell-comment-form">
-          <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
-          <p>124</p>
-        </form>
-
-        <form id="tweet-cell-like-form">
-          <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
-          <p>1422</p>
-        </form>
-      </div>
-    </div><!-- /right-part -->
-  </div><!--/cell -->
-
   {% for tweet in tweet_feed %}
+
     <div id="tweet-cell">
+
       <div id="tweet-cell-left-part">
         {% if tweet.user.profile_photo %}
           <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
@@ -107,18 +59,23 @@
         {% endif %}
 
         <div id="tweet-cell-right-part-bottom-links">
-          <form id="tweet-cell-comment-form">
-            <button type="submit" form="tweet-cell-comment-form"><i class="ri-chat-3-line"></i></button>
-            <p>124</p>
+          <form id="tweet-cell-comment-form" action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
+            <p>{{ tweet_comment_amounts|get_key_value:tweet.id }}</p>
           </form>
 
-          <form id="tweet-cell-like-form">
-            <button type="submit" form="tweet-cell-like-form"><i class="ri-heart-3-line"></i></button>
-            <p>1422</p>
+          <form id="tweet-cell-like-form" action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
+            <p>{{ tweet_like_amounts|get_key_value:tweet.id }}</p>
           </form>
         </div>
       </div><!-- /right-part -->
     </div><!--/cell -->
+
   {% endfor %}
 
 

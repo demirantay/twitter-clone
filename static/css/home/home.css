@@ -122,7 +122,6 @@
 }
 
 #tweet-cell:hover {
-  cursor: pointer;
   background-color: #F7F7F7;
   transition: 0.2s;
 }
@@ -198,16 +197,17 @@
   width: 28%;
 }
 
-#tweet-cell-right-part-bottom-links form button {
+#tweet-cell-right-part-bottom-links form input {
   display: inline-block;
   background-color: transparent;
   border: 1px solid transparent;
   font-size: 16px;
   color: grey;
   padding: 5px 5px;
+  padding-left: 9px !important;
 }
 
-#tweet-cell-right-part-bottom-links form button:hover {
+#tweet-cell-right-part-bottom-links form input:hover {
   transition: 0.1s;
   color: #1DA1F2;
   cursor: pointer;
@@ -218,7 +218,7 @@
 
 #tweet-cell-right-part-bottom-links form p {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 10px;
   color: grey;
   position: absolute;
   font-size: 14px;
