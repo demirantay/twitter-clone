@@ -1,0 +1,37 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/hashtag/explore.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="topic-header-box-container">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h3>Fashion</h3>
+</div>
+
+
+
+<div id="topic-header-box-container">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h3>Languages</h3>
+</div>
+
+
+
+<div id="topic-header-box-container">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h3>Cars</h3>
+</div>
+
+
+
+<div id="topic-header-box-container">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h3>Programming</h3>
+</div>
+
+{% endblock %}

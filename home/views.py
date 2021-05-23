@@ -20,6 +20,25 @@ from utils.base_utils import get_who_to_follow
 from utils.base_utils import get_topics_to_follow
 
 
+def index(request):
+    """this is an index redicrector page"""
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return HttpResponseRedirect("/home/0/")
+
+
 def home(request, page):
     """this is the homepage of the site and is an proxy redirector"""
 
