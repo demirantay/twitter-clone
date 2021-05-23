@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+{% with page="0" %}
 
 <!-- banner -->
 <div id="home-banner">
@@ -23,7 +24,7 @@
     {% endif %}
   </div>
   <div id="home-tweet-form-right-part">
-    <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'home' page %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <textarea placeholder="What's happening?" name="tweet_content"></textarea>
         <label for="home-tweet-file-input"><i class="ri-image-add-line"></i></label>
@@ -59,14 +60,14 @@
         {% endif %}
 
         <div id="tweet-cell-right-part-bottom-links">
-          <form id="tweet-cell-comment-form" action="{% url 'home' %}" method="POST">
+          <form id="tweet-cell-comment-form" action="{% url 'home' page %}" method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
             <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
             <p>{{ tweet_comment_amounts|get_key_value:tweet.id }}</p>
           </form>
 
-          <form id="tweet-cell-like-form" action="{% url 'home' %}" method="POST">
+          <form id="tweet-cell-like-form" action="{% url 'home' page %}" method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
             <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
@@ -79,7 +80,19 @@
   {% endfor %}
 
 
+  <!-- pagination -->
+  <div id="pagination-container">
+    {% if current_page <= 0 %}
+      <a href=""><span class="fa fa-caret-left"></span></a>
+      <a href="{% url 'home' next_page %}"><span class="fa fa-caret-right"></span></a>
+    {% elif current_page > 0%}
+      <a href="{% url 'home' previous_page %}"><span class="fa fa-caret-left"></span></a>
+      <a href="{% url 'home' next_page %}"><span class="fa fa-caret-right"></span></a>
+    {% endif %}
+
+  </div>
+
 </div><!--/container -->
 
-
+{% endwith %}
 {% endblock %}

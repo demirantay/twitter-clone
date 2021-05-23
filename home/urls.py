@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # home Page
-    path("", views.home, name="home"),
+    path("home/<int:page>/", views.home, name="home"),
     # Single tweet page
     path("tweet/<int:tweet_id>/", views.tweet_single, name="tweet_single"),
 ]

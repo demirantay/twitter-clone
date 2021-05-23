@@ -247,6 +247,31 @@
 }
 
 
+#pagination-container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+#pagination-container a {
+  text-decoration: none;
+  color: #1DA1F2;
+  background-color: white;
+  border: 1px solid #1DA1F2;
+  font-size: 22px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#pagination-container a:hover {
+  background-color: #1DA1F2;
+  color: white;
+  transition: 0.2s;
+}
+
+
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
   #home-banner {

@@ -40,11 +40,12 @@
   </head>
 
   <body>
+    {% with page="0" %}
 
     <!-- left navigation -->
     <div id="left-navigation">
-      <p><a href="{% url 'home' %}"><img src="{% static 'branding/logo.png' %}" alt="logo.txt"/></a></p>
-      <p><a href="{% url 'home' %}"><i class="ri-home-2-line"></i></a></p>
+      <p><a href="{% url 'home' page %}"><img src="{% static 'branding/logo.png' %}" alt="logo.txt"/></a></p>
+      <p><a href="{% url 'home' page %}"><i class="ri-home-2-line"></i></a></p>
       <p><a href="{% url 'explore' %}"><i class="ri-hashtag"></i></a></p>
       <p><a href="{% url 'notification' %}"><i class="ri-notification-4-line"></i></a></p>
       <p><a href="{% url 'chat_landing' %}"><i class="ri-mail-line"></i></a></p>
@@ -90,7 +91,7 @@
           <div id="profile-photo-hidden-panel" style="background-image: url('{% static 'test/test.jpg' %}');"></div>
         </div>
         <div id="hidden-tweet-panel-form-container-right-box">
-          <form method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+          <form method="POST" action="{% url 'home' page %}" enctype="multipart/form-data">
               {% csrf_token %}
               <textarea placeholder="What's happening?" name="tweet_content"></textarea>
               <div id="horizontal-line"></div>
@@ -141,7 +142,7 @@
         <button id="hidden-mobile-left-nav-close-btn"><i class="ri-close-line"></i></button>
       </div>
       <div id="hidden-mobile-nav-links">
-        <a href="{% url 'home' %}"><i class="ri-home-2-line"></i> Home</a>
+        <a href="{% url 'home' page %}"><i class="ri-home-2-line"></i> Home</a>
         <a href="{% url 'explore' %}"><i class="ri-hashtag"></i> Explore</a>
         <a href="{% url 'notification' %}"><i class="ri-notification-4-line"></i> Notifications</a>
         <a href="{% url 'chat_landing' %}"><i class="ri-mail-line"></i> Messages</a>
@@ -182,7 +183,7 @@
 
       <!-- search -->
       <div id="right-nav-search-container">
-          <form action="{% url 'home' %}" method="POST">
+          <form action="{% url 'home' page %}" method="POST">
             {% csrf_token %}
             <input name="right_nav_search_submit_btn" id="search-submit-btn" type="submit" value="&#128269;" />
             <input name="search_input" id="search-text-input" type="text" placeholder="Search Cwitter" />
@@ -280,7 +281,7 @@
                 <p>@{{ user.user.username }}</p>
               </div>
               <div id="who-to-follow-cell-right-part">
-                <form action="{% url 'home' %}" method="POST">
+                <form action="{% url 'home' page %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" value="{{ user.id }}" name="hidden_user_id" />
                     <input type="submit" value="Follow" name="base_who_to_follow_submit_btn" />
@@ -305,7 +306,7 @@
     <div id="hidden-mobile-tweet-panel">
       <div id="hidden-mobile-tweet-panel-header">
         <button id="mobile-hidden-tweet-close-btn"><i class="ri-arrow-left-line"></i></button>
-        <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'home' page %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <input type="submit" value="Tweet" id="hidden-mobile-tweet-submit-btn" name="mobile_hidden_tweet_submit_btn" />
 
@@ -329,7 +330,7 @@
 
     <div id="mobile-bottom-navigation">
       <div id="mobile-bottom-col">
-        <a href="{% url 'home' %}"><i class="ri-home-2-line"></i></a>
+        <a href="{% url 'home' page %}"><i class="ri-home-2-line"></i></a>
       </div>
       {% with foo="foo" %}
       <div id="mobile-bottom-col">
@@ -362,5 +363,6 @@
     </script>
 
 
+    {% endwith %}
   </body>
 </html>
