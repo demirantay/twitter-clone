@@ -45,11 +45,21 @@ def explore(request):
         BasicUserProfile, ObjectDoesNotExist, random
     )
 
+    # Getting the last 10 tweets of each topic
+    topics_tweets = {}
+
+    for topic in topics_to_follow:
+        topics_tweet_query = Tweet.objects.filter(
+            topic=topic
+        )[:10]
+        topics_tweets[topic.id] = topics_tweet_query
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "who_to_follow": who_to_follow,
         "topics_to_follow": topics_to_follow,
+        "topics_tweets": topics_tweets,
     }
 
     if current_basic_user == None:

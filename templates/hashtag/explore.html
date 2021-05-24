@@ -3,35 +3,55 @@
 {% load filters %}
 
 {% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/hashtag/explore.css' %}" />
 {% endblock %}
 
 {% block content %}
 
-<div id="topic-header-box-container">
-  <p><i class="ri-message-2-fill"></i></p>
-  <h3>Fashion</h3>
-</div>
+{% for topic in topics_to_follow %}
+  <div id="topic-header-box-container">
+    <p><i class="ri-message-2-fill"></i></p>
+    <h3>{{ topic.name }}</h3>
+  </div>
 
+  {% for tweet in topics_tweets|get_key_value:topic.id %}
+    <div id="tweet-cell">
 
+      <div id="tweet-cell-left-part">
+        {% if tweet.user.profile_photo %}
+          <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+        {% else %}
+          <div id="tweet-cell-left-part-profile-photo"></div>
+        {% endif %}
+      </div>
+      <div id="tweet-cell-right-part">
+        <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+        <p>{{ tweet.content|linebreaks }}</p>
 
-<div id="topic-header-box-container">
-  <p><i class="ri-message-2-fill"></i></p>
-  <h3>Languages</h3>
-</div>
+        {% if tweet.image %}
+          <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+        {% endif %}
 
+        <div id="tweet-cell-right-part-bottom-links">
+          <form id="tweet-cell-comment-form" action="{% url 'home' page %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
+            <p></p>
+          </form>
 
+          <form id="tweet-cell-like-form" action="{% url 'home' page %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
+            <p></p>
+          </form>
+        </div>
+      </div><!-- /right-part -->
+    </div><!--/cell -->
+  {% endfor %}
 
-<div id="topic-header-box-container">
-  <p><i class="ri-message-2-fill"></i></p>
-  <h3>Cars</h3>
-</div>
-
-
-
-<div id="topic-header-box-container">
-  <p><i class="ri-message-2-fill"></i></p>
-  <h3>Programming</h3>
-</div>
+{% endfor %}
 
 {% endblock %}

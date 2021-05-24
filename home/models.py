@@ -7,6 +7,7 @@ from django.utils import timezone
 
 # My Module Imports
 from authentication.models import BasicUserProfile
+from hashtag.models import Topic
 
 
 # Tweet Model
@@ -24,6 +25,12 @@ class Tweet(models.Model):
     content = models.TextField()
     image = models.ImageField(
         upload_to="tweet_photo/", blank=True, null=True
+    )
+    topic = models.ForeignKey(
+        Topic,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
     )
 
     def __str__(self):
