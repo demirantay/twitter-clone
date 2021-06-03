@@ -1,0 +1,42 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/search/search.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="search-header">
+    <h3>Search</h3>
+</div>
+
+{% if searched_user == None %}
+  <p id="no-search-text">We couldn't find anyone with that name!</p>
+{% else %}
+  <!-- search cells -->
+  <div id="search-cell">
+    <div id="search-cell-left-part">
+      {% if searched_user.profile_photo %}
+        <div id="search-cell-profile-photo" style="background-image:url({{ searched_user.profile_photo.url }})"></div>
+      {% else %}
+        <div id="search-cell-profile-photo"></div>
+      {% endif %}
+    </div>
+    <div id="search-cell-middle-part">
+      <p id="search-name"><a href="{% url 'other_user_profile' searched_user.user.username %}"><b>{{ searched_user.full_name }}</b></a></p>
+      <p id="search-username"><a href="{% url 'other_user_profile' searched_user.user.username %}">@{{ searched_user.user.username }}</a></p>
+      <p id="search-bio">{{ searched_user.bio }}</p>
+    </div>
+    <div id="search-cell-right-part">
+      <a href="{% url 'other_user_profile' searched_user.user.username %}">View</a>
+    </div>
+  </div>
+{% endif %}
+
+
+{% endwith %}
+{% endblock %}
