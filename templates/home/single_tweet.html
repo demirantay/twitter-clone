@@ -1,0 +1,133 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/single_tweet.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header/back button -->
+<div id="single-tweet-header">
+    <p><a href="{% url 'home' page %}"><span class="fa fa-arrow-left"></span></a></p>
+    <h4>Tweet</h4>
+</div>
+
+
+<!-- tweet content -->
+<div id="single-tweet-content-container">
+  <div id="single-tweet-content-container-top">
+    <div id="single-tweet-content-container-top-left-box">
+      {% if current_tweet.user.profile_photo %}
+        <div id="single-tweet-content-top-profile-photo" style="background-image:url({{ current_tweet.user.profile_photo.url }})"></div>
+      {% else %}
+        <div id="single-tweet-content-top-profile-photo"></div>
+      {% endif %}
+    </div>
+    <div id="single-tweet-content-container-top-right-box">
+      <a href="{% url 'other_user_profile' current_tweet.user.user.username %}">
+        <h3>{{ current_tweet.user.full_name }}</h3>
+        <p>@{{ current_tweet.user.user.username }}</p>
+      </a>
+    </div>
+  </div>
+  <div id="single-tweet-content-container-middle">
+    <p id="single-tweet-content-content">
+      {{ current_tweet.content|linebreaks }}
+    </p>
+
+    {% if current_tweet.image %}
+      <div id="single-tweet-content-img" style="background-image:url({{ current_tweet.image.url }})"></div>
+    {% endif %}
+
+    <p id="single-tweet-content-bottom"><span id="single-tweet-content-date">{{ current_tweet.creation_date }}</span> <span id="single-tweet-content-dot" class="fa fa-circle"></span> <span id="single-tweet-content-likes"><b>{{ current_tweet.tweet_like_amount }}</b> likes</span></p>
+  </div>
+</div>
+
+<!-- tweet operations -->
+<div id="single-twee-operations">
+  <form method="POST" action="{% url 'tweet_single' current_tweet.id %}">
+    {% csrf_token %}
+    <input type="submit" value="&#128153;" name="single_tweet_like_submit_btn" />
+  </form>
+
+  <button id="hidden-panel-open-btn"><span class="fa fa-comment"></span></button>
+
+</div>
+
+<div id="hidden-single-tweet-comment-form-bg"></div>
+<div id="hidden-single-tweet-comment-form">
+  <div id="hidden-single-tweet-comment-form-header">
+      <button id="hidden-panel-close-btn"><span class="fa fa-close"></span></button>
+  </div>
+  <div id="hidden-single-tweet-comment-form-container">
+    <div id="hidden-single-tweet-comment-form-container-left-box">
+      <div id="hidden-single-tweet-comment-form-container-profile-photo" style="background-image:url({% static 'test/test.jpg' %})"></div>
+    </div>
+    <div id="hidden-single-tweet-comment-form-container-right-box">
+      <form method="POST" action="{% url 'tweet_single' current_tweet.id %}">
+          {% csrf_token %}
+          <textarea placeholder="Tweet your reply ..." name="reply_content"></textarea>
+          <input type="submit" value="Reply" name="single_tweet_reply_submit_btn" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  let hidden_comment_bg = document.getElementById("hidden-single-tweet-comment-form-bg");
+  let hidden_comment_panel = document.getElementById("hidden-single-tweet-comment-form");
+  let hidden_comment_panel_open_btn = document.getElementById("hidden-panel-open-btn");
+  let hidden_comment_panel_close_btn = document.getElementById("hidden-panel-close-btn");
+
+  hidden_comment_panel_open_btn.onclick = function() {
+    hidden_comment_bg.style.display = "block";
+    hidden_comment_panel.style.display = "block";
+  }
+
+  hidden_comment_panel_close_btn.onclick = function() {
+    hidden_comment_bg.style.display = "none";
+    hidden_comment_panel.style.display = "none";
+  }
+</script>
+
+<!-- tweet comments -->
+<div id="tweet-comments-container">
+
+  {% for comment in current_tweet_comments %}
+    <div id="tweet-comment-cell">
+      <div id="tweet-comment-cell-left">
+        {% if comment.commentor.profile_photo %}
+          <div id="tweet-comment-cell-left-profile-photo" style="background-image:url({{ comment.commentor.profile_photo.url }})"></div>
+        {% else %}
+          <div id="tweet-comment-cell-left-profile-photo" ></div>
+        {% endif %}
+      </div>
+      <div id="tweet-comment-cell-right">
+        <p id="tweet-comment-cell-header-p"><a href="{% url 'other_user_profile' comment.commentor.user.username %}">{{ comment.commentor.full_name }}</a> <span class="tweet-comment-header-p-date">@{{ comment.commentor.user.username }} · {{ comment.creation_date }}</span></p>
+        <p id="tweet-comment-cell-header-reply-p">Replying to <a href="{% url 'other_user_profile' current_tweet.user.user.username %}">@{{ current_tweet.user.user.username }}</a></p>
+        <p id="tweet-comment-cell-content-p">{{ comment.content|linebreaks }}</p>
+        <div id="tweet-comment-cell-right-bottom">
+          <form action="{% url 'tweet_single' current_tweet.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ comment.id }}" name="comment_id" />
+            <input type="submit" value="&#128153;" name="single_tweet_comment_like_submit_btn" />
+          </form>
+          <p id="comment-like-count">{{ comment.like_amount }}</p>
+        </div>
+      </div>
+    </div><!--/cell-->
+  {% endfor %}
+
+
+</div><!-- /cell-container-->
+
+
+<!-- tweet replies -->
+
+
+
+{% endwith %}
+{% endblock %}

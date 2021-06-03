@@ -16,4 +16,4 @@ def notification(request):
 
     data = {}
 
-    return render(request, "notification/notification.html", data)
+    return render(request, "notifications/notification.html", data)

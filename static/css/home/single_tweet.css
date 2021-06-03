@@ -1,0 +1,578 @@
+#single-tweet-header {
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#single-tweet-header p {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#single-tweet-header a {
+  text-decoration: none;
+  color: #1DA1F2;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#single-tweet-header a i {
+
+}
+
+#single-tweet-header h4 {
+  margin: 0px;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+  font-weight: 000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* ----------------- single-tweet-content-container ------------------ */
+#single-tweet-content-container {
+
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+}
+
+#single-tweet-content-img {
+  width: 100%;
+  border-radius: 12px;
+  height: 350px;
+  background-color: lightgrey;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#single-tweet-content-container-top {
+  margin-top: 10px;
+}
+
+#single-tweet-content-container-top-left-box {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#single-tweet-content-top-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#single-tweet-content-container-top-right-box {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+#single-tweet-content-container-top-right-box a {
+  text-decoration: none;
+  color: black;
+}
+
+#single-tweet-content-container-top-right-box a h3 {
+  margin: 0px !important;
+  font-size: 16px !important;
+}
+
+#single-tweet-content-container-top-right-box p {
+  margin: 0px !important;
+  color: grey !important;
+  font-size: 15px !important;
+  margin-top: 5px;
+}
+
+#single-tweet-content-container-middle {
+
+}
+
+#single-tweet-content-content {
+  font-size: 22px;
+  margin-bottom: 0px;
+}
+
+#single-tweet-content-bottom {
+
+  margin-top: 20px;
+  border-bottom: 1px solid #EBEEF0;
+  padding-bottom: 10px;
+}
+
+#single-tweet-content-date {
+  color: grey;
+  font-size: 16px;
+}
+
+#single-tweet-content-dot {
+  font-size: 5px;
+  color: grey;
+  vertical-align: middle;
+  margin: 0px 7px;
+}
+
+#single-tweet-content-likes {
+
+}
+
+/* -------------------- tweet operations  ---------------------------- */
+#single-twee-operations {
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  border-bottom: 1px solid #EBEEF0;
+  padding-bottom: 5px;
+  margin-top: -15px;
+}
+
+#single-twee-operations form {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#single-twee-operations form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 20px;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+#single-twee-operations form input:hover {
+  cursor: pointer;
+  background-color: #E8F6FD;
+  transition: 0.2s;
+}
+
+#single-twee-operations button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 22px;
+  position: relative;
+  padding: 8px 10px;
+  color: #BDC3C7;
+  margin-left: 12%;
+  border-radius: 25px;
+}
+
+#single-twee-operations button:hover {
+  cursor: pointer;
+  background-color: #E8F6FD;
+  transition: 0.2s;
+}
+
+#hidden-single-tweet-comment-form-bg {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: black;
+  z-index: 999;
+  opacity: 0.5;
+  display: none;
+}
+
+#hidden-single-tweet-comment-form {
+  z-index: 9999;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 50%;
+  margin-left: 25%;
+  background-color: white;
+  height: auto;
+  margin-top: 10vh;
+  border-radius: 10px;
+  padding-bottom: 40px;
+  display: none;
+}
+
+#hidden-single-tweet-comment-form-header {
+  padding: 10px 0px;
+  border-bottom: 1px solid #EBEEF0;
+  margin-bottom: 10px;
+}
+
+#hidden-single-tweet-comment-form-header button {
+  margin-top: 0px;
+  margin-left: 10px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 20px;
+  color: #1DA1F2;
+  border-radius: 25px;
+
+}
+
+#hidden-single-tweet-comment-form-header button:hover {
+  cursor: pointer;
+  background-color: #E8F6FD;
+  transition: 0.2s;
+}
+
+#hidden-single-tweet-comment-form-container {
+  height: auto;
+}
+
+#hidden-single-tweet-comment-form-container-left-box {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+}
+
+#hidden-single-tweet-comment-form-container-profile-photo {
+  height: 50px;
+  width: 50px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+#hidden-single-tweet-comment-form-container-right-box {
+  border: 1px solid transparent;
+  width: 78%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+}
+
+#hidden-single-tweet-comment-form-container-right-box form {
+
+}
+
+#hidden-single-tweet-comment-form-container-right-box form textarea {
+  width: 95%;
+  border: 1px solid transparent;
+  font-size: 20px;
+  height: 150px;
+}
+
+#hidden-single-tweet-comment-form-container-right-box form textarea:focus {
+  outline: none;
+}
+
+#hidden-single-tweet-comment-form-container-right-box form input {
+  position: absolute;
+  right:0;
+  bottom:0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #1DA1F2;
+  color: white;
+  border: 1px solid #1DA1F2;
+  font-size: 16px;
+  padding: 5px 15px;
+  border-radius: 25px;
+}
+
+#hidden-single-tweet-comment-form-container-right-box form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #1991DA;
+}
+
+/* -------------------- tweet comments  ------------------------------ */
+#tweet-comments-container {
+}
+
+#tweet-comment-cell {
+  border-bottom: 1px solid #EBEEF0;
+  height: auto;
+  padding: 10px 0px;
+}
+
+#tweet-comment-cell-left {
+  display: inline-block;
+  vertical-align: top;
+  width: 12%;
+}
+
+#tweet-comment-cell-left-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+#tweet-comment-cell-left-vertical-line {
+  border-left: 2px solid #C4CFD6;
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
+  width: 1px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+#tweet-comment-cell-right {
+  display: inline-block;
+  vertical-align: top;
+  width: 85%;
+}
+
+#tweet-comment-cell-header-p {
+  margin: 0px;
+  color: #5B7183 !important;
+  font-size: 15px;
+}
+
+#tweet-comment-cell-header-p a {
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+  margin-right: 3px;
+}
+
+#tweet-comment-header-p-date {
+  color: #F7F7F7 !important;
+}
+
+#tweet-comment-cell-header-reply-p {
+  margin: 0px;
+  margin-top: 3px;
+  font-size: 15px;
+  color: #5B7183 !important;
+}
+
+#tweet-comment-cell-header-reply-p a {
+  color: #1DA1F2;
+  text-decoration: none;
+}
+
+#tweet-comment-cell-content-p {
+  font-size: 15px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#tweet-comment-cell-right-bottom {
+  padding: 0px !important;
+  margin-top: -10px;
+  height: auto;
+}
+
+#tweet-comment-cell-right-bottom form {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#tweet-comment-cell-right-bottom form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 17px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin-right: -8px;
+}
+
+#tweet-comment-cell-right-bottom form input:hover {
+  cursor: pointer;
+  background-color: #E8F6FD;
+  transition: 0.2s;
+}
+
+#comment-like-count {
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #single-tweet-header {
+    display: none;
+  }
+
+  /* ----------------- single-tweet-content-container ------------------ */
+  #single-tweet-content-container {
+    width: 90%;
+    padding-top: 5px;
+  }
+
+  /* -------------------- tweet operations  ---------------------------- */
+
+  #hidden-single-tweet-comment-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  #hidden-single-tweet-comment-form-container-left-box {
+    width: 20%;
+  }
+
+  #hidden-single-tweet-comment-form-container-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box {
+    width: 75%;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box form textarea {
+    font-size: 16px;
+  }
+
+  /* -------------------- tweet comments  ------------------------------ */
+
+  #tweet-comment-cell-left {
+    width: 15%;
+  }
+
+  #tweet-comment-cell-left-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #tweet-comment-cell-right {
+    width: 82%;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #single-tweet-header {
+    display: none;
+  }
+
+  /* ----------------- single-tweet-content-container ------------------ */
+  #single-tweet-content-container {
+    width: 90%;
+    padding-top: 5px;
+  }
+
+  /* -------------------- tweet operations  ---------------------------- */
+
+  #hidden-single-tweet-comment-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  #hidden-single-tweet-comment-form-container-left-box {
+    width: 20%;
+  }
+
+  #hidden-single-tweet-comment-form-container-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box {
+    width: 75%;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box form textarea {
+    font-size: 16px;
+  }
+
+  /* -------------------- tweet comments  ------------------------------ */
+
+  #tweet-comment-cell-left {
+    width: 15%;
+  }
+
+  #tweet-comment-cell-left-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #tweet-comment-cell-right {
+    width: 82%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #single-tweet-header {
+    display: none;
+  }
+
+  /* ----------------- single-tweet-content-container ------------------ */
+  #single-tweet-content-container {
+    width: 90%;
+    padding-top: 5px;
+  }
+
+  /* -------------------- tweet operations  ---------------------------- */
+
+  #hidden-single-tweet-comment-form {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  #hidden-single-tweet-comment-form-container-left-box {
+    width: 20%;
+  }
+
+  #hidden-single-tweet-comment-form-container-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box {
+    width: 75%;
+  }
+
+  #hidden-single-tweet-comment-form-container-right-box form textarea {
+    font-size: 16px;
+  }
+
+  /* -------------------- tweet comments  ------------------------------ */
+
+  #tweet-comment-cell-left {
+    width: 15%;
+  }
+
+  #tweet-comment-cell-left-profile-photo {
+    height: 35px;
+    width: 35px;
+  }
+
+  #tweet-comment-cell-right {
+    width: 82%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

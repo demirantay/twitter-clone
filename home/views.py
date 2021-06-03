@@ -196,8 +196,90 @@ def home(request, page):
 
 
 def tweet_single(request, tweet_id):
-    """.."""
+    """in this view the user can see a single tweet"""
 
-    data = {}
+    # admin user session pop
+    # admin user session pop
+    # Deleting any sessions regarding top-tier type of users
 
-    return render(request, "home/single_tweet.html", data)
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Topics to follow
+    topics_to_follow = get_topics_to_follow(Topic, ObjectDoesNotExist, random)
+
+    # Who to follow box cells
+    who_to_follow = get_who_to_follow(
+        BasicUserProfile, ObjectDoesNotExist, random
+    )
+
+    # Get the current tweet
+    try:
+        current_tweet = Tweet.objects.get(id=tweet_id)
+    except ObjectDoesNotExist:
+        current_tweet = None
+
+    # Get the current tweet likes
+    try:
+        current_tweet_likes = TweetLike.objects.filter(tweet=current_tweet)
+    except ObjectDoesNotExist:
+        current_tweet_likes = None
+
+    # Get the current tweet comments
+    try:
+        current_tweet_comments = TweetComment.objects.filter(
+            tweet=current_tweet
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        current_tweet_comments = None
+
+    # Current tweet like form processing
+    if request.POST.get("single_tweet_like_submit_btn"):
+        current_tweet.tweet_like_amount += 1
+        current_tweet.save()
+        return HttpResponseRedirect("/tweet/"+str(current_tweet.id)+"/")
+
+    # current tweet comment form processing
+    if request.POST.get("single_tweet_reply_submit_btn"):
+        reply_content = request.POST.get("reply_content")
+        if bool(reply_content) == False or reply_content == "":
+            pass
+        else:
+            new_comment = TweetComment(
+                tweet=current_tweet,
+                content=reply_content,
+                commentor=current_basic_user_profile,
+            )
+            new_comment.save()
+            return HttpResponseRedirect("/tweet/"+str(current_tweet.id)+"/")
+
+    # tweet comment like form processing
+    if request.POST.get("single_tweet_comment_like_submit_btn"):
+        comment_id = request.POST.get("comment_id")
+        comment = TweetComment.objects.get(id=comment_id)
+        comment.like_amount += 1
+        comment.save()
+        return HttpResponseRedirect("/tweet/"+str(current_tweet.id)+"/")
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "who_to_follow": who_to_follow,
+        "topics_to_follow": topics_to_follow,
+        "current_tweet": current_tweet,
+        "current_tweet_likes": current_tweet_likes,
+        "current_tweet_like_amount": len(current_tweet_likes),
+        "current_tweet_comments": current_tweet_comments,
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return render(request, "home/single_tweet.html", data)
