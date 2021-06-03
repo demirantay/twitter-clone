@@ -1,1 +1,33 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
 
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/notifications/notification.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="notification-header">
+    <h3>Notifications</h3>
+</div>
+
+{% for notification in all_notifications %}
+  <!-- notification cells -->
+  <div id="notification-cell">
+    <div id="notification-cell-left-part">
+      <span class="fa fa-bell"></span>
+    </div>
+    <div id="notification-cell-right-part">
+      <p>
+          <a href="{% url 'other_user_profile' notification.notifier.user.username %}">@{{ notification.notifier.user.username }}</a> liked your <a href="{% url 'tweet_single' notification.tweet.id %}">tweet</a>
+      </p>
+    </div>
+  </div><!--/cell-->
+{% endfor %}
+
+
+{% endwith %}
+{% endblock %}

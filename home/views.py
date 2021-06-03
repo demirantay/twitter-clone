@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from authentication.models import BasicUserProfile, Follower
 from .models import Tweet, TweetLike, TweetComment
 from hashtag.models import Topic
+from notification.models import NotificationLike
 
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.base_utils import left_nav_tweet_form_processing
@@ -174,6 +175,12 @@ def home(request, page):
             liker=current_basic_user_profile
         )
         new_like.save()
+        new_notification = NotificationLike(
+            notified=current_tweet.user,
+            notifier=current_basic_user_profile,
+            tweet=current_tweet,
+        )
+        new_notification.save()
         return HttpResponseRedirect("/tweet/" + str(current_tweet.id) + "/")
 
     data = {
@@ -244,6 +251,12 @@ def tweet_single(request, tweet_id):
     if request.POST.get("single_tweet_like_submit_btn"):
         current_tweet.tweet_like_amount += 1
         current_tweet.save()
+        new_notification = NotificationLike(
+            notified=current_tweet.user,
+            notifier=current_basic_user_profile,
+            tweet=current_tweet,
+        )
+        new_notification.save()
         return HttpResponseRedirect("/tweet/"+str(current_tweet.id)+"/")
 
     # current tweet comment form processing
