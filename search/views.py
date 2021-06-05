@@ -57,4 +57,7 @@ def search(request, query):
         "searched_user": searched_user,
     }
 
-    return render(request, "search/search.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return render(request, "search/search.html", data)

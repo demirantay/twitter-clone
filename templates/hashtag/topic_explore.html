@@ -1,0 +1,97 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/hashtag/topic_explore.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="topic-header">
+    <h3>Topic</h3>
+</div>
+
+<!-- topic name banner -->
+<div id="topic-name-banner">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h1>Programming</h1>
+</div>
+
+
+<!-- tweets -->
+<div id="tweet-cell">
+  <div id="tweet-cell-left-part">
+    <div id="tweet-cell-left-part-profile-photo"></div>
+  </div>
+
+  <div id="tweet-cell-right-part">
+    <p id="tweet-cell-header"><b><a href="">john doe</a></b> @username · 12 may 2021</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div id="tweet-image"></div>
+
+    <div id="tweet-cell-right-part-bottom-links">
+      <form id="tweet-cell-comment-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value="" name="hidden_tweet_id" />
+        <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
+        <p></p>
+      </form>
+
+      <form id="tweet-cell-like-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="hidden_tweet_id" />
+        <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
+        <p></p>
+      </form>
+    </div>
+
+  </div>
+</div><!--/cell-->
+
+
+
+
+<div id="tweet-cell">
+  <div id="tweet-cell-left-part">
+    <div id="tweet-cell-left-part-profile-photo"></div>
+  </div>
+
+  <div id="tweet-cell-right-part">
+    <p id="tweet-cell-header"><b><a href="">john doe</a></b> @username · 12 may 2021</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div id="tweet-image"></div>
+
+    <div id="tweet-cell-right-part-bottom-links">
+      <form id="tweet-cell-comment-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value="" name="hidden_tweet_id" />
+        <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
+        <p></p>
+      </form>
+
+      <form id="tweet-cell-like-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="hidden_tweet_id" />
+        <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
+        <p></p>
+      </form>
+    </div>
+
+  </div>
+</div><!--/cell-->
+
+
+<!-- pagination -->
+<div id="pagination-container">
+  <a href=""><span class="fa fa-caret-left"></span></a>
+  <a href=""><span class="fa fa-caret-right"></span></a>
+</div>
+
+
+{% endwith %}
+{% endblock %}

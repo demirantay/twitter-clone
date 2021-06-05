@@ -62,4 +62,7 @@ def notification(request):
         "all_notifications": all_notifications,
     }
 
-    return render(request, "notifications/notification.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return render(request, "notifications/notification.html", data)

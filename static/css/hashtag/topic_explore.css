@@ -1,0 +1,173 @@
+#topic-header {
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#topic-header h3 {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#topic-name-banner {
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#topic-name-banner h1 {
+  margin: 0px;
+  font-size: 35px;
+  font-weight: 800;
+  margin-left: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+#topic-name-banner p {
+  display: inline-block;
+  font-size: 33px;
+  color: #1DA1F2;
+  vertical-align: middle;
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* ---------------------------- tweet cell ------------------------- */
+
+#tweet-cell {
+  border-bottom: 1px solid #EBEEF0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
+#tweet-cell:hover {
+  background-color: #F7F7F7;
+  transition: 0.2s;
+}
+
+#tweet-cell-left-part {
+  width: 15%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+#tweet-cell-left-part-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#tweet-cell-right-part {
+  width: 82%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#tweet-cell-right-part p {
+  margin: 0px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+#tweet-cell-header {
+  margin-bottom: 5px !important;
+}
+
+#tweet-cell-header a {
+  color: black;
+  text-decoration: none;
+}
+
+#tweet-cell-header a:hover {
+  text-decoration: underline;
+}
+
+#tweet-cell-header {
+  color: grey;
+}
+
+#tweet-image {
+  width: 93%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #E5E8E8;
+  height: 280px;
+  border-radius: 15px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#tweet-cell-right-part-bottom-links {
+  border: 1px solid transparent;
+}
+
+#tweet-cell-right-part-bottom-links form {
+  display: inline-block;
+  width: 28%;
+}
+
+#tweet-cell-right-part-bottom-links form input {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 16px;
+  color: grey;
+  padding: 5px 5px;
+  padding-left: 9px !important;
+}
+
+#tweet-cell-right-part-bottom-links form input:hover {
+  transition: 0.1s;
+  color: #1DA1F2;
+  cursor: pointer;
+  background-color: #E8F6FD;
+  border-radius: 25px;
+
+}
+
+#tweet-cell-right-part-bottom-links form p {
+  display: inline-block;
+  margin-top: 10px;
+  color: grey;
+  position: absolute;
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+#pagination-container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+#pagination-container a {
+  text-decoration: none;
+  color: #1DA1F2;
+  background-color: white;
+  border: 1px solid #1DA1F2;
+  font-size: 22px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#pagination-container a:hover {
+  background-color: #1DA1F2;
+  color: white;
+  transition: 0.2s;
+}
