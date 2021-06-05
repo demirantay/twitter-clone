@@ -14,7 +14,7 @@
   <div id="chat-left-nav">
     <div id="chat-left-header">
       <h3>Messages</h3>
-      <button><i class="ri-mail-add-line"></i></button>
+      <button id="hidden-panel-open-btn"><i class="ri-mail-add-line"></i></button>
     </div>
 
     <a href="" id="message-link-cell-a">
@@ -33,7 +33,7 @@
   <div id="hidden-chat-panel-bg"></div>
   <div id="hidden-chat-panel">
     <div id="hidden-chat-panel-header">
-      <button><span class="fa fa-close"></span></button>
+      <button id="hidden-panel-close-btn"><span class="fa fa-close"></span></button>
       <h3>New message</h3>
     </div>
 
@@ -54,9 +54,42 @@
   <!-- right content -->
   <div id="chat-right-content">
 
+    <div id="no-message-banner">
+        <h4>You don’t have a message selected</h4>
+        <p>Choose one from your existing messages, or start a new one.</p>
+        <button id="no-message-text-open-btn">New message</button>
+    </div>
+
   </div>
 
 </div>
+
+
+<script>
+
+  let hidden_new_message_panel = document.getElementById("hidden-chat-panel");
+  let hidden_new_message_panel_bg = document.getElementById("hidden-chat-panel-bg");
+  let hidden_new_message_panel_open_btn = document.getElementById("hidden-panel-open-btn");
+  let hidden_new_message_panel_close_btn = document.getElementById("hidden-panel-close-btn");
+  let no_message_open_btn = document.getElementById("no-message-text-open-btn");
+
+  hidden_new_message_panel_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+  hidden_new_message_panel_close_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "none";
+    hidden_new_message_panel_bg.style.display = "none";
+  }
+
+  no_message_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+
+</script>
 
 
 {% endwith %}

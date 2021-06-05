@@ -1,6 +1,6 @@
 #chat-container {
   width: 100%;
-  height: 100px;
+  height: auto;
 }
 
 /* -------------- chat left nav ----------- */
@@ -113,6 +113,7 @@
   background-color: black;
   opacity: 0.3;
   z-index: 999;
+  display: none;
 }
 
 #hidden-chat-panel {
@@ -122,11 +123,13 @@
   background-color: white;
   z-index: 9999;
   border-radius: 12px;
-  height: auto;
+  height: 80vh;
   width: 50%;
   margin-left: 25%;
   margin-top: 3%;
   padding-bottom: 20px;
+  overflow-y: scroll;
+  display: none;
 }
 
 #hidden-chat-panel-header {
@@ -166,10 +169,15 @@
 
 #new-chat-link {
   border-bottom: 1px solid #EBEEF0;
+  padding: 15px 0px;
+}
+
+#new-chat-link:hover {
+  transition: 0.2s;
+  background-color: #F7F9FA;
 }
 
 #new-chat-link-left-part {
-  border: 1px solid black;
   width: 18%;
   vertical-align: middle;
   display: inline-block;
@@ -182,10 +190,10 @@
   height: 45px;
   width: 45px;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
 #new-chat-link-right-part {
-  border: 1px solid black;
   width: 78%;
   vertical-align: middle;
   display: inline-block;
@@ -195,10 +203,12 @@
 #new-chat-link-right-part h4 {
   font-size: 20px;
   margin: 0px;
+  color: black;
 }
 
 #new-chat-link-right-part p {
   margin: 0px;
+  color: grey;
 }
 
 /* -------------- chat right content ----------- */
@@ -209,4 +219,159 @@
   display: inline-block;
   vertical-align: top;
   overflow-y: scroll;
+}
+
+#no-message-banner {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40%;
+  text-align:center;
+}
+
+#no-message-banner h4 {
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#no-message-banner p {
+  color: grey;
+  font-size: 15px;
+}
+
+#no-message-banner button {
+  background-color: #1DA1F2;
+  border: 1px solid transparent;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  border-radius: 25px;
+  padding: 6px 20px;
+}
+
+#no-message-banner button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #1991DA;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  /* -------------- chat left nav ----------- */
+  #chat-left-nav {
+    width: 99%;
+    border-right: 0px;
+    height: auto;
+    overflow-y: none;
+  }
+
+  #chat-right-content {
+    display: none;
+  }
+
+  #hidden-chat-panel {
+    height: 80vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  #new-chat-link-left-part {
+    width: 28%;
+  }
+
+  #new-chat-link-right-part {
+    width: 68%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* -------------- chat left nav ----------- */
+  #chat-left-nav {
+    width: 99%;
+    border-right: 0px;
+    height: auto;
+    overflow-y: none;
+  }
+
+  #chat-right-content {
+    display: none;
+  }
+
+  #hidden-chat-panel {
+    height: 80vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  #new-chat-link-left-part {
+    width: 28%;
+  }
+
+  #new-chat-link-right-part {
+    width: 68%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+
+  /* -------------- chat left nav ----------- */
+  #chat-left-nav {
+    width: 99%;
+    border-right: 0px;
+    height: auto;
+    overflow-y: none;
+  }
+
+  #chat-right-content {
+    display: none;
+  }
+
+  #hidden-chat-panel {
+    height: 80vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  #new-chat-link-left-part {
+    width: 28%;
+  }
+
+  #new-chat-link-right-part {
+    width: 68%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
 }
