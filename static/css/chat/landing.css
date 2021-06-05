@@ -81,6 +81,9 @@
   background-color: lightgrey;
   border-radius: 50%;
   margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #message-link-cell-right-part {
@@ -191,6 +194,9 @@
   width: 45px;
   border-radius: 50%;
   margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #new-chat-link-right-part {

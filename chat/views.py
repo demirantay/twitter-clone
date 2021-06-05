@@ -44,11 +44,20 @@ def chat_landing(request):
         BasicUserProfile, ObjectDoesNotExist, random
     )
 
+    # Get the current followings
+    try:
+        current_followings = Follower.objects.filter(
+            follower=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        current_followings = None
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "who_to_follow": who_to_follow,
         "topics_to_follow": topics_to_follow,
+        "current_followings": current_followings,
     }
 
     if current_basic_user == None:
