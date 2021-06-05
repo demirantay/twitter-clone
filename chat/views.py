@@ -55,3 +55,41 @@ def chat_landing(request):
         return HttpResponseRedirect("/auth/signup/")
     else:
         return render(request, "chat/landing.html", data)
+
+
+def chat_single(request, username):
+    """ in this page users can chat with each other """
+
+    # admin user session pop
+    # admin user session pop
+    # Deleting any sessions regarding top-tier type of users
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Topics to follow
+    topics_to_follow = get_topics_to_follow(Topic, ObjectDoesNotExist, random)
+
+    # Who to follow box cells
+    who_to_follow = get_who_to_follow(
+        BasicUserProfile, ObjectDoesNotExist, random
+    )
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "who_to_follow": who_to_follow,
+        "topics_to_follow": topics_to_follow,
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/signup/")
+    else:
+        return render(request, "chat/single.html", data)

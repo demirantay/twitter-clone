@@ -1,0 +1,123 @@
+{% extends 'half_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/chat/landing.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/chat/single.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<div id="chat-container">
+
+  <!-- left navigation -->
+  <div id="chat-left-nav">
+    <div id="chat-left-header">
+      <h3>Messages</h3>
+      <button id="hidden-panel-open-btn"><i class="ri-mail-add-line"></i></button>
+    </div>
+
+    <a href="" id="message-link-cell-a">
+      <div id="message-link-cell">
+        <div id="message-link-cell-left-part">
+          <div id="message-link-cell-profile-photo" style=""></div>
+        </div>
+        <div id="message-link-cell-right-part">
+          <p id="message-link-cell-header"><b>Alyssa X</b> @alyssaxuu</p>
+          <p id="message-link-cell-date">Aug 2, 2020</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div id="hidden-chat-panel-bg"></div>
+  <div id="hidden-chat-panel">
+    <div id="hidden-chat-panel-header">
+      <button id="hidden-panel-close-btn"><span class="fa fa-close"></span></button>
+      <h3>New message</h3>
+    </div>
+
+    <a id="new-chat-link-a" href="">
+      <div id="new-chat-link">
+          <div id="new-chat-link-left-part">
+            <div id="new-chat-link-profile-photo"></div>
+          </div>
+          <div id="new-chat-link-right-part">
+            <h4>Alyssa X</h4>
+            <p>@alyysarapper</p>
+          </div>
+      </div>
+    </a>
+  </div>
+
+
+  <!-- right content -->
+  <div id="chat-right-content">
+
+
+    <div id="chat-right-top-box">
+      <div id="chat-right-top-box-left-part">
+        <div id="chat-top-box-profile-photo"></div>
+      </div>
+      <div id="chat-right-top-box-right-part">
+        <h3><a href="">Alyssa X</a></h3>
+        <p>@username</p>
+      </div>
+    </div>
+
+    <div id="chat-right-middle-box">
+      <div id="chat-self-box">
+        lorem ipsum dolor sit amet miru
+      </div>
+
+      <div id="clear-float"></div>
+
+      <div id="chat-other-box">
+        lorem ipsum dolor sit amet miru  lorem ipsum dolor sit amet miru
+      </div>
+
+      <div id="clear-float"></div>
+    </div>
+
+    <div id="chat-right-bottom-box">
+      <form>
+          <input type="text" placeholder="Start a new message" id="chat-content" />
+          <input type="submit" value="send" id="chat-send-submit-btn" />
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  let hidden_new_message_panel = document.getElementById("hidden-chat-panel");
+  let hidden_new_message_panel_bg = document.getElementById("hidden-chat-panel-bg");
+  let hidden_new_message_panel_open_btn = document.getElementById("hidden-panel-open-btn");
+  let hidden_new_message_panel_close_btn = document.getElementById("hidden-panel-close-btn");
+  let no_message_open_btn = document.getElementById("no-message-text-open-btn");
+
+  hidden_new_message_panel_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+  hidden_new_message_panel_close_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "none";
+    hidden_new_message_panel_bg.style.display = "none";
+  }
+
+  no_message_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+
+</script>
+
+
+{% endwith %}
+{% endblock %}

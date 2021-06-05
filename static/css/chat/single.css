@@ -1,0 +1,370 @@
+#chat-right-top-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #EBEEF0;
+  height: 80px;
+}
+
+#chat-right-top-box-left-part {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  width: 13%;
+  text-align: center;
+}
+
+#chat-top-box-profile-photo {
+  background-color: lightgrey;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+#chat-right-top-box-right-part {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  width: 83%;
+  text-align: left;
+}
+
+#chat-right-top-box-right-part h3 {
+  margin: 0px;
+  color: black;
+
+}
+
+#chat-right-top-box-right-part h3 a {
+  text-decoration: none;
+  color: black;
+}
+
+#chat-right-top-box-right-part p {
+  margin: 0px;
+  color: grey;
+}
+
+#chat-right-middle-box {
+  margin-top: 90px;
+}
+
+#chat-self-box {
+  background-color: #1DA1F2;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 10px 10px 0px 10px;
+  width: 50%;
+  height: auto;
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+
+#clear-float {
+  clear: both;
+}
+
+#chat-other-box {
+  background-color: #EBEEF0;
+  color: black;
+  padding: 10px 10px;
+  border-radius: 10px 10px 10px 0px;
+  width: 50%;
+  height: auto;
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+#chat-right-bottom-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #EBEEF0;
+  height: auto;
+}
+
+#chat-right-bottom-box form {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#chat-content {
+  display: inline-block;
+  width: 78%;
+  border: 1px solid #1DA1F2;
+  border-radius: 25px;
+  padding: 8px 10px;
+}
+
+#chat-content:focus {
+  outline: none;
+}
+
+#chat-send-submit-btn {
+  display: inline-block;
+  width: 17%;
+  color: white;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 8px 10px;
+}
+
+#chat-send-submit-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #1991DA;
+  border-color: #1991DA;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #chat-left-nav {
+    display: none !important;
+  }
+
+  #chat-right-content {
+    display: block !important;
+    width: 99%;
+  }
+
+
+  #chat-right-top-box {
+    position: fixed;
+    margin-top: 60px;
+    z-index: 99;
+    background-color: white;
+    height: 60px;
+  }
+
+  #chat-right-top-box-left-part {
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    width: 20%;
+    text-align: center;
+  }
+
+  #chat-right-top-box-right-part {
+    width: 68%;
+  }
+
+  #chat-top-box-profile-photo {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #chat-right-top-box-right-part h3 {
+    font-size: 16px;
+  }
+
+  #chat-right-top-box-right-part p {
+    font-size: 14px;
+  }
+
+  #chat-right-middle-box {
+    margin-top: 90px;
+  }
+
+  #chat-self-box {
+    width: 70%;
+  }
+
+  #chat-other-box {
+    width: 70%;
+  }
+
+  #chat-right-bottom-box {
+    position: fixed;
+    margin-bottom: 50px;
+  }
+
+  #chat-content {
+    display: inline-block;
+    width: 74%;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #chat-left-nav {
+    display: none !important;
+  }
+
+  #chat-right-content {
+    display: block !important;
+    width: 99%;
+  }
+
+
+  #chat-right-top-box {
+    position: fixed;
+    margin-top: 60px;
+    z-index: 99;
+    background-color: white;
+    height: 60px;
+  }
+
+  #chat-right-top-box-left-part {
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    width: 20%;
+    text-align: center;
+  }
+
+  #chat-right-top-box-right-part {
+    width: 68%;
+  }
+
+  #chat-top-box-profile-photo {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #chat-right-top-box-right-part h3 {
+    font-size: 16px;
+  }
+
+  #chat-right-top-box-right-part p {
+    font-size: 14px;
+  }
+
+  #chat-right-middle-box {
+    margin-top: 90px;
+  }
+
+  #chat-self-box {
+    width: 70%;
+  }
+
+  #chat-other-box {
+    width: 70%;
+  }
+
+  #chat-right-bottom-box {
+    position: fixed;
+    margin-bottom: 50px;
+  }
+
+  #chat-content {
+    display: inline-block;
+    width: 74%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #chat-left-nav {
+    display: none !important;
+  }
+
+  #chat-right-content {
+    display: block !important;
+    width: 99%;
+  }
+
+
+  #chat-right-top-box {
+    position: fixed;
+    margin-top: 60px;
+    z-index: 99;
+    background-color: white;
+    height: 60px;
+  }
+
+  #chat-right-top-box-left-part {
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    width: 20%;
+    text-align: center;
+  }
+
+  #chat-right-top-box-right-part {
+    width: 68%;
+  }
+
+  #chat-top-box-profile-photo {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #chat-right-top-box-right-part h3 {
+    font-size: 16px;
+  }
+
+  #chat-right-top-box-right-part p {
+    font-size: 14px;
+  }
+
+  #chat-right-middle-box {
+    margin-top: 90px;
+  }
+
+  #chat-self-box {
+    width: 70%;
+  }
+
+  #chat-other-box {
+    width: 70%;
+  }
+
+  #chat-right-bottom-box {
+    position: fixed;
+    margin-bottom: 50px;
+  }
+
+  #chat-content {
+    display: inline-block;
+    width: 74%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

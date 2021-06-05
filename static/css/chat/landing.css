@@ -219,6 +219,7 @@
   display: inline-block;
   vertical-align: top;
   overflow-y: scroll;
+  position: relative;
 }
 
 #no-message-banner {
