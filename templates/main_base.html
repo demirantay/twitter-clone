@@ -249,7 +249,7 @@
       </div>
 
       {% for topic in topics_to_follow %}
-        <a href="{% url 'topic_explore' topic.name %}">
+        <a href="{% url 'topic_explore' topic.name page %}">
           <div id="topics-to-follow-cell">
             <h4>#{{ topic.name }}</h4>
             <p>Popular right now</p>

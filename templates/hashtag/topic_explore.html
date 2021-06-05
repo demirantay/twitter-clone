@@ -17,79 +17,59 @@
 <!-- topic name banner -->
 <div id="topic-name-banner">
   <p><i class="ri-message-2-fill"></i></p>
-  <h1>Programming</h1>
+  <h1>{{ current_topic.name|title }}</h1>
 </div>
 
-
-<!-- tweets -->
-<div id="tweet-cell">
-  <div id="tweet-cell-left-part">
-    <div id="tweet-cell-left-part-profile-photo"></div>
-  </div>
-
-  <div id="tweet-cell-right-part">
-    <p id="tweet-cell-header"><b><a href="">john doe</a></b> @username · 12 may 2021</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    <div id="tweet-image"></div>
-
-    <div id="tweet-cell-right-part-bottom-links">
-      <form id="tweet-cell-comment-form" method="POST">
-        {% csrf_token %}
-        <input type="hidden" value="" name="hidden_tweet_id" />
-        <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
-        <p></p>
-      </form>
-
-      <form id="tweet-cell-like-form" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="hidden_tweet_id" />
-        <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
-        <p></p>
-      </form>
+{% for tweet in tweet_feed %}
+  <!-- tweets -->
+  <div id="tweet-cell">
+    <div id="tweet-cell-left-part">
+      {% if tweet.user.profile_photo %}
+        <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+      {% else %}
+        <div id="tweet-cell-left-part-profile-photo"></div>
+      {% endif %}
     </div>
 
-  </div>
-</div><!--/cell-->
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+      <p>{{ tweet.content|linebreaks }}</p>
 
+      {% if tweet.image %}
+        <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+      {% endif %}
 
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form" method="POST" action="{% url 'topic_explore' current_topic.name current_page %}">
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128262;" name="single_topic_explore_tweet_cell_comment_submit_btn"/>
+          <p>{{ tweet.tweet_comment_amount }}</p>
+        </form>
 
+        <form id="tweet-cell-like-form" method="POST" action="{% url 'topic_explore' current_topic.name current_page %}">
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128153;" name="single_topic_explore_tweet_cell_like_submit_btn" />
+          <p>{{ tweet.tweet_like_amount }}</p>
+        </form>
+      </div>
 
-<div id="tweet-cell">
-  <div id="tweet-cell-left-part">
-    <div id="tweet-cell-left-part-profile-photo"></div>
-  </div>
-
-  <div id="tweet-cell-right-part">
-    <p id="tweet-cell-header"><b><a href="">john doe</a></b> @username · 12 may 2021</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    <div id="tweet-image"></div>
-
-    <div id="tweet-cell-right-part-bottom-links">
-      <form id="tweet-cell-comment-form" method="POST">
-        {% csrf_token %}
-        <input type="hidden" value="" name="hidden_tweet_id" />
-        <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
-        <p></p>
-      </form>
-
-      <form id="tweet-cell-like-form" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="hidden_tweet_id" />
-        <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
-        <p></p>
-      </form>
     </div>
-
-  </div>
-</div><!--/cell-->
+  </div><!--/cell-->
+{% endfor %}
 
 
 <!-- pagination -->
 <div id="pagination-container">
-  <a href=""><span class="fa fa-caret-left"></span></a>
-  <a href=""><span class="fa fa-caret-right"></span></a>
+  {% if current_page <= 0 %}
+    <a href=""><span class="fa fa-caret-left"></span></a>
+    <a href="{% url 'topic_explore' current_topic.name next_page %}"><span class="fa fa-caret-right"></span></a>
+  {% elif current_page > 0%}
+    <a href="{% url 'topic_explore' current_topic.name previous_page %}"><span class="fa fa-caret-left"></span></a>
+    <a href="{% url 'topic_explore' current_topic.name next_page %}"><span class="fa fa-caret-right"></span></a>
+  {% endif %}
+
 </div>
 
 

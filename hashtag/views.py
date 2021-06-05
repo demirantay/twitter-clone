@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from authentication.models import BasicUserProfile, Follower
 from home.models import Tweet, TweetLike, TweetComment
 from .models import Topic
+from notification.models import NotificationLike
 
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.base_utils import left_nav_tweet_form_processing
@@ -68,7 +69,7 @@ def explore(request):
         return render(request, "hashtag/explore.html", data)
 
 
-def topic_explore(request, topic):
+def topic_explore(request, topic, page):
     """in this page the users can see a topics tweet feed"""
     # admin user session pop
     # admin user session pop
@@ -92,11 +93,64 @@ def topic_explore(request, topic):
         BasicUserProfile, ObjectDoesNotExist, random
     )
 
+    # Get the current topic
+    try:
+        current_topic = Topic.objects.get(name=topic)
+    except ObjectDoesNotExist:
+        current_topic = None
+
+    # Get the topics tweets and add the pagination cutoff points for the
+    # current page tweets
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    post_records_starting_point = current_page * 46
+    post_records_ending_point = post_records_starting_point + 46
+
+    try:
+        tweet_feed = Tweet.objects.filter(
+            topic=current_topic
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        tweet_feed = None
+
+    tweet_feed = tweet_feed[post_records_starting_point:post_records_ending_point]
+
+    # comment form processing
+    if request.POST.get("single_topic_explore_tweet_cell_comment_submit_btn"):
+        current_tweet_id = request.POST.get("hidden_tweet_id")
+        return HttpResponseRedirect("/tweet/" + str(current_tweet_id) + "/")
+
+    # tweet like form processing
+    if request.POST.get("single_topic_explore_tweet_cell_like_submit_btn"):
+        current_tweet_id = request.POST.get("hidden_tweet_id")
+        current_tweet = Tweet.objects.get(id=current_tweet_id)
+        new_like = TweetLike(
+            tweet=current_tweet,
+            liker=current_basic_user_profile
+        )
+        new_like.save()
+        current_tweet.tweet_like_amount += 1
+        current_tweet.save()
+        new_notification = NotificationLike(
+            notified=current_tweet.user,
+            notifier=current_basic_user_profile,
+            tweet=current_tweet,
+        )
+        new_notification.save()
+        return HttpResponseRedirect("/tweet/" + str(current_tweet.id) + "/")
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "who_to_follow": who_to_follow,
         "topics_to_follow": topics_to_follow,
+        "current_topic": current_topic,
+        "current_page": page,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "tweet_feed": tweet_feed,
     }
 
     if current_basic_user == None:
