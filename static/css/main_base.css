@@ -303,6 +303,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 38%;
 }
 
+#half-base-content-container {
+  margin-left: 14%;
+  margin-right: 6%;
+}
+
 /* ----------------- right navigation ----------------- */
 #right-navigation {
   border-left: 1px solid #EBEEF0;
@@ -892,6 +897,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 50px;
   }
 
+  #half-base-content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
   /* ----------------- right navigation ----------------- */
   #right-navigation {
     display: none;
@@ -921,6 +932,12 @@ h1, h2, h3, h4, h5, h6 {
   }
   /* ----------------- main content container ----------------- */
   #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  #half-base-content-container {
     margin-left: 0%;
     margin-right: 0%;
     margin-top: 50px;
@@ -958,6 +975,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0%;
     margin-top: 50px;
   }
+  #half-base-content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
 
   /* ----------------- right navigation ----------------- */
   #right-navigation {
@@ -988,6 +1010,11 @@ h1, h2, h3, h4, h5, h6 {
   #content-container {
     margin-left: 14%;
     margin-right: 10%;
+  }
+
+  #half-base-content-container {
+    margin-left: 14%;
+    margin-right: 6%;
   }
 
   /* ----------------- right navigation ----------------- */
