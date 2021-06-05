@@ -38,14 +38,14 @@
             {% csrf_token %}
             <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
             <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
-            <p></p>
+            <p>{{ tweet.tweet_comment_amount }}</p>
           </form>
 
           <form id="tweet-cell-like-form" action="{% url 'home' page %}" method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
             <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
-            <p></p>
+            <p>{{ tweet.tweet_like_amount }}</p>
           </form>
         </div>
       </div><!-- /right-part -->

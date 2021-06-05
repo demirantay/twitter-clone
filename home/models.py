@@ -33,6 +33,7 @@ class Tweet(models.Model):
         null=True
     )
     tweet_like_amount = models.IntegerField(default=0)
+    tweet_comment_amount = models.IntegerField(default=0)
 
     def __str__(self):
         return "Tweet id: " + str(self.id)

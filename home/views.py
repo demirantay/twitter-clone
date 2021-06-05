@@ -271,6 +271,8 @@ def tweet_single(request, tweet_id):
                 commentor=current_basic_user_profile,
             )
             new_comment.save()
+            current_tweet.tweet_comment_amount += 1
+            current_tweet.save()
             return HttpResponseRedirect("/tweet/"+str(current_tweet.id)+"/")
 
     # tweet comment like form processing
