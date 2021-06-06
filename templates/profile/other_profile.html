@@ -1,0 +1,85 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile/profile.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="profile-header">
+    <h3>Demir</h3>
+    <p>54 Tweets</p>
+</div>
+
+<!-- banner and profile photo -->
+<div id="profile-banner-container">
+  <div id="profile-banner"></div>
+
+  <div id="profile-banner-bottom-part">
+      <div id="profile-photo"></div>
+      <div id="clear"></div>
+      <form>
+          <input type="submit" id="follow-submit-btn" value="Follow" />
+      </form>
+      <div id="clear"></div>
+  </div>
+
+</div>
+
+<!-- bio -->
+<div id="profile-bio">
+  <h3>Demir Antay</h3>
+  <p id="bio-username">@demirantay</p>
+
+  <p id="bio-bio">Developer of @getdomingo, I use this account to discuss and get ideas about the new/old features of the site</p>
+
+  <p id="bio-date">Joined 20 Aug, 2020</p>
+
+  <p id="bio-followers"><b>6</b>Following <span id="right-space"></span> <b>8</b>Followers</p>
+</div>
+
+
+<!-- navigation -->
+<div id="profile-nav">
+  <p><a href="">Tweets</a></p>
+</div>
+
+
+<!-- tweets -->
+
+<!-- tweets -->
+<div id="tweet-cell">
+  <div id="tweet-cell-left-part">
+    <div id="tweet-cell-left-part-profile-photo"></div>
+  </div>
+
+  <div id="tweet-cell-right-part">
+    <p id="tweet-cell-header"><b><a href="">demir antay</a></b> @username · 20 may 2020</p>
+    <p>lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor</p>
+
+    <div id="tweet-image"></div>
+
+    <div id="tweet-cell-right-part-bottom-links">
+      <form id="tweet-cell-comment-form" method="POST" >
+        {% csrf_token %}
+        <input type="hidden" value="" name="hidden_tweet_id" />
+        <input type="submit" value="&#128262;" name="single_topic_explore_tweet_cell_comment_submit_btn"/>
+        <p>0</p>
+      </form>
+
+      <form id="tweet-cell-like-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value="" name="hidden_tweet_id" />
+        <input type="submit" value="&#128153;" name="single_topic_explore_tweet_cell_like_submit_btn" />
+        <p>0</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+{% endwith %}
+{% endblock %}
