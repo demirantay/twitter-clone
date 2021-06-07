@@ -267,7 +267,7 @@
         </div>
 
         {% for user in who_to_follow %}
-          <a href="">
+          <a href="{% url 'other_user_profile' user.user.username %}">
             <div id="who-to-follow-cell">
               <div id="who-to-follow-cell-left-part">
                 {% if user.profile_photo %}

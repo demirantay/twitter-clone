@@ -10,18 +10,27 @@
 
 <!-- header -->
 <div id="profile-header">
-    <h3>Demir</h3>
-    <p>54 Tweets</p>
+    <h3>{{ current_basic_user_profile.full_name }}</h3>
+    <p>{{tweet_amount}} Tweets</p>
 </div>
 
 <!-- banner and profile photo -->
 <div id="profile-banner-container">
-  <div id="profile-banner"></div>
+  {% if current_basic_user_profile.banner_photo %}
+    <div id="profile-banner" style="background-image:url({{ current_basic_user_profile.banner_photo.url }})"></div>
+  {% else %}
+    <div id="profile-banner"></div>
+  {% endif %}
 
   <div id="profile-banner-bottom-part">
-      <div id="profile-photo"></div>
+      {% if current_basic_user_profile.profile_photo %}
+        <div id="profile-photo" style="background-image:url({{ current_basic_user_profile.profile_photo.url }})"></div>
+      {% else %}
+        <div id="profile-photo"></div>
+      {% endif %}
+
       <div id="clear"></div>
-      <a href="">Edit profile</a>
+      <a href="{% url 'settings' %}">Edit profile</a>
       <div id="clear"></div>
   </div>
 
@@ -29,55 +38,62 @@
 
 <!-- bio -->
 <div id="profile-bio">
-  <h3>Demir Antay</h3>
-  <p id="bio-username">@demirantay</p>
+  <h3>{{ current_basic_user_profile.full_name }}</h3>
+  <p id="bio-username">@{{ current_basic_user_profile.user.username }}</p>
 
-  <p id="bio-bio">Developer of @getdomingo, I use this account to discuss and get ideas about the new/old features of the site</p>
+  <p id="bio-bio">{{ current_basic_user_profile.bio }}</p>
 
-  <p id="bio-date">Joined 20 Aug, 2020</p>
+  <p id="bio-date">{{ current_basic_user_profile.creation_date }}</p>
 
-  <p id="bio-followers"><b>6</b>Following <span id="right-space"></span> <b>8</b>Followers</p>
+  <p id="bio-followers"><b>{{following_amount}}</b>Following <span id="right-space"></span> <b>{{follower_amount}}</b>Followers</p>
 </div>
 
 
 <!-- navigation -->
 <div id="profile-nav">
-  <p><a href="">Tweets</a></p>
+  <p><a href="{% url 'profile' %}">Tweets</a></p>
 </div>
 
 
-<!-- tweets -->
-
+{% for tweet in all_tweets %}
 <!-- tweets -->
 <div id="tweet-cell">
   <div id="tweet-cell-left-part">
-    <div id="tweet-cell-left-part-profile-photo"></div>
+    {% if tweet.user.profile_photo %}
+      <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+    {% else %}
+      <div id="tweet-cell-left-part-profile-photo"></div>
+    {% endif %}
   </div>
 
   <div id="tweet-cell-right-part">
-    <p id="tweet-cell-header"><b><a href="">demir antay</a></b> @username · 20 may 2020</p>
-    <p>lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor lorem ipsum sit amet mi dolor</p>
+    <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+    <p>{{ tweet.content|linebreaks }}</p>
 
-    <div id="tweet-image"></div>
+    {% if tweet.image %}
+      <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+    {% endif %}
 
     <div id="tweet-cell-right-part-bottom-links">
-      <form id="tweet-cell-comment-form" method="POST" >
+      <form id="tweet-cell-comment-form" method="POST" action="{% url 'profile' %}" >
         {% csrf_token %}
-        <input type="hidden" value="" name="hidden_tweet_id" />
-        <input type="submit" value="&#128262;" name="single_topic_explore_tweet_cell_comment_submit_btn"/>
-        <p>0</p>
+        <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+        <input type="submit" value="&#128262;" name="profile_tweet_comment_submit_btn"/>
+        <p>{{ tweet.tweet_comment_amount }}</p>
       </form>
 
-      <form id="tweet-cell-like-form" method="POST">
+      <form id="tweet-cell-like-form" method="POST" action="{% url 'profile' %}">
         {% csrf_token %}
-        <input type="hidden" value="" name="hidden_tweet_id" />
-        <input type="submit" value="&#128153;" name="single_topic_explore_tweet_cell_like_submit_btn" />
-        <p>0</p>
+        <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+        <input type="submit" value="&#128153;" name="profile_tweet_like_submit_btn" />
+        <p>{{ tweet.tweet_like_amount }}</p>
       </form>
     </div>
 
   </div>
 </div>
+{% endfor %}
+
 
 {% endwith %}
 {% endblock %}

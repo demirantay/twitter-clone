@@ -28,6 +28,9 @@ class BasicUserProfile(models.Model):
     profile_photo = models.ImageField(
         upload_to="profile_photo/", blank=True, null=True
     )
+    banner_photo = models.ImageField(
+        upload_to="banner_photo/", blank=True, null=True
+    )
     email = models.CharField(max_length=200, blank=True, null=True)
     full_name = models.CharField(max_length=100, blank=True, null=True)
     bio = models.TextField(null=True, blank=True)
