@@ -1,4 +1,5 @@
 # Main Imports
+import random
 
 # Django Imports
 from django.shortcuts import render, get_object_or_404, HttpResponse
@@ -146,6 +147,44 @@ def signup(request):
 
     # check if the email is @...com
     # ... havent implemented this yet.
+
+    # Demo Form Processing and Session management
+    if request.POST.get("auth_demo_submit_btn"):
+        random_guest_num = random.randint(0, 10000000)
+        random_username = "guest" + str(random_guest_num)
+        random_full_name = "guest" + str(random_guest_num)
+        random_password = random_guest_num + random_guest_num
+        random_email = "guest"+str(random_guest_num)+"@foo.com"
+        # creating the new user
+        # (first check if the guestname exists, if it does do not create)
+        try:
+            random_user = User.objects.get(username=random_username)
+        except ObjectDoesNotExist:
+            random_user = None
+
+        if random_user == None:
+            new_guest_user = User.objects.create_user(
+                username=random_username,
+                email=random_email,
+            )
+            new_guest_user.save()
+            new_guest_user = User.objects.get(username=random_username)
+            #new_guest_user.set_password(random_password)
+            # creating the new user profile
+            new_user_profile = BasicUserProfile(
+                user=new_guest_user,
+                email=random_email,
+                full_name=random_full_name,
+            )
+            new_user_profile.save()
+            # creating the session values
+            request.session["basic_user_email"] = new_guest_user.email
+            request.session["basic_user_username"] = new_guest_user.username
+            request.session["basic_user_logged_in"] = True
+            # redirect to welcome page
+            return HttpResponseRedirect("/")
+        else:
+            pass
 
     data = {
         "invalid_credentials": invalid_credentials,

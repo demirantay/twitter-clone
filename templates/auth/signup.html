@@ -19,7 +19,10 @@
   <h3>Join Cwitter today.</h3>
   <button id="signup-button">Sign up</button>
   <button id="login-button"><a href="{% url 'login' %}">Log in</a></button>
-  <button id="login-button"><a href="">Demo</a></button>
+  <form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    <input id="login-button" value="Demo" type="submit" name="auth_demo_submit_btn"/>
+  </form>
 
   <p id="footer">Twitter is a registered trademark of Twitter Inc. This project is
     for non-profit and educational purposes.
