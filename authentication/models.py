@@ -36,7 +36,7 @@ class BasicUserProfile(models.Model):
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return "Settings id: " + str(self.id) + " | User: " + str(self.user)
+        return "User: " + str(self.user.username)
 
 
 # Follower
@@ -61,5 +61,5 @@ class Follower(models.Model):
     )
 
     def __str__(self):
-        return "Following: " + str(self.following) + \
-                " | Follower: " + str(self.follower)
+        return "Following: " + str(self.following.user.username) + \
+                " | Follower: " + str(self.follower.user.username)
