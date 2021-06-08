@@ -1,4 +1,4 @@
-## Twitter Clone's Documentation
+# Twitter Clone's Documentation
 Hello maintainers! this documentation is written just for you once we have a public documentation for our API we will share it in a different file. This documentation is just for the source code's maintainers.
 
 ### Overview
