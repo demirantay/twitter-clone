@@ -54,7 +54,15 @@ Enjoy!
 
 ## Screenshots
 
-...
+<img src="./docs/ss/1.png" style="border:3px solid #1DA1F2; border-radius:15px; margin-bottom:10px;">
+
+<img src="./docs/ss/2.png" style="border:3px solid #1DA1F2; border-radius:15px; margin-bottom:10px;">
+
+<img src="./docs/ss/3.png" style="border:3px solid #1DA1F2; border-radius:15px; margin-bottom:10px;">
+
+<img src="./docs/ss/4.png" style="border:3px solid #1DA1F2; border-radius:15px; margin-bottom:10px;">
+
+<img src="./docs/ss/5.png" style="border:3px solid #1DA1F2; border-radius:15px; margin-bottom:10px;">
 
 ## Features
 
