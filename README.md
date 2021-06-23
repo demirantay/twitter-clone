@@ -7,7 +7,7 @@
 <p align="center">
   Twitter clone built with Django + PostgreSQL + Nginx
   <br>
-  <a href=""><strong>Visit the App »</strong></a>
+  <a href="https://getdemir.com/twitter"><strong>Visit the App »</strong></a>
   <br>
   Pre-Alpha: V-1.13.0
   <br>
@@ -20,7 +20,7 @@ Twitter clone is a fully fledged Twitter clone. The support for IOS and Android 
 
 ## Live Demo
 
-...
+Link: https://getdemir.com/twitter
 
 ## Official Documentation
 
