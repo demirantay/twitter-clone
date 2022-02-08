@@ -20,7 +20,7 @@ Twitter clone is a fully fledged Twitter clone. The support for IOS and Android 
 
 ## Live Demo
 
-Link: https://getdemir.com/twitter
+Link: (currently removed it)
 
 ## Official Documentation
 
